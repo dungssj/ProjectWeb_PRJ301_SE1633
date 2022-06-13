@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans';
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: rgb(253,181,0);
+    background: linear-gradient(167deg, rgba(253,181,0,1) 0%, rgba(254,1,56,1) 100%);
+    position: relative;
+}
+
+.container-pass {
+    width: 420px;
+    height: 420px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.container-content h1 {
+    margin-top: 100px;
+    font-weight: 900;
+}
+
+.container-content p {
+    margin-top: 8px;
+}
+
+.container-content .emailInput {
+    width: 340px;
+    height: 40px;
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+         
+.btn-grad {
+    background-image: linear-gradient(to right, #FF4E50 0%, #F9D423  51%, #FF4E50  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    border: none;
+    
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+ 
