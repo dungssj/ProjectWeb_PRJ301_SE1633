@@ -29,7 +29,7 @@
                         <form>
                             <input type="text" placeholder="Username"><br>
                             <input type="password" placeholder="Password"><br>
-                            <a href="forgot-password.html" id="forgotPass">Forgot Password</a><br>
+                            <a href="Forgotpassword.jsp" id="forgotPass">Forgot Password</a><br>
                             <button type="submit" >Sign In</button>
                             <button ><a href="signup.jsp">Sign Up</a></button>
                         </form>
