@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class signup_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -48,17 +48,17 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>JSP Page</title>\n");
       out.write("        <link rel=\"stylesheet\" href=\"asset/style/style.css\">\n");
       out.write("        <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n");
       out.write("        <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n");
       out.write("        <link href=\"https://fonts.googleapis.com/css2?family=Open+Sans&display=swap\" rel=\"stylesheet\">\n");
+      out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <div id=\"login-container\">\n");
       out.write("            <div id=\"login-content-container\">\n");
       out.write("                <div id=\"login-content\">\n");
-      out.write("                    <p>Sign In</p>\n");
+      out.write("                    <p>Sign Up</p>\n");
       out.write("                    <div id=\"icon-container\">\n");
       out.write("                        <img src=\"https://img.icons8.com/color/96/undefined/facebook-new.png\"/>\n");
       out.write("                        <img src=\"https://img.icons8.com/color/96/undefined/twitter--v1.png\"/>\n");
@@ -67,10 +67,9 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div id=\"container\">\n");
       out.write("                        <form>\n");
       out.write("                            <input type=\"text\" placeholder=\"Username\"><br>\n");
+      out.write("                            <input type=\"email\" placeholder=\"Email\"><br>\n");
       out.write("                            <input type=\"password\" placeholder=\"Password\"><br>\n");
-      out.write("                            <a href=\"Forgotpassword.jsp\" id=\"forgotPass\">Forgot Password</a><br>\n");
-      out.write("                            <button type=\"submit\" >Sign In</button>\n");
-      out.write("                            <button ><a href=\"signup.jsp\">Sign Up</a></button>\n");
+      out.write("                            <button type=\"submit\" >Sign Up</button>\n");
       out.write("                        </form>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
