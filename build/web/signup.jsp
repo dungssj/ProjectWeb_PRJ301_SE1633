@@ -16,6 +16,25 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div id="login-container">
+            <div id="login-content-container">
+                <div id="login-content">
+                    <p>Sign Up</p>
+                    <div id="icon-container">
+                        <img src="https://img.icons8.com/color/96/undefined/facebook-new.png"/>
+                        <img src="https://img.icons8.com/color/96/undefined/twitter--v1.png"/>
+                        <img src="https://img.icons8.com/color/96/undefined/facebook-messenger--v1.png"/>
+                    </div>
+                    <div id="container">
+                        <form>
+                            <input type="text" placeholder="Username"><br>
+                            <input type="email" placeholder="Email"><br>
+                            <input type="password" placeholder="Password"><br>
+                            <button type="submit" >Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

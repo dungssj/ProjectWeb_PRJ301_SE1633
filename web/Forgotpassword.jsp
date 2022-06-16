@@ -16,6 +16,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="container">
+            <div class="container-pass">
+                <div class="container-content">
+                    <h1>FORGOT PASSWORD</h1>
+                    <p>Please enter your email to change your password</p>
+                    <input class="emailInput" type="email" name="email" placeholder="Your e-mail address"><br>
+                    <input class="submit btn-grad" type="submit" value="Reset my password">
+                </div>
+            </div>
+        </div>
     </body>
 </html>
