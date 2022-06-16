@@ -49,12 +49,20 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>JSP Page</title>\n");
-      out.write("        <link rel=\"stylesheet\" href=\"asset/style/style.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"asset/style/login.css\">\n");
       out.write("        <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n");
       out.write("        <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n");
       out.write("        <link href=\"https://fonts.googleapis.com/css2?family=Open+Sans&display=swap\" rel=\"stylesheet\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("        ");
+
+            String msg = "";
+            if(request.getAttribute("msg") != null) {
+                msg = request.getAttribute("msg").toString();
+            }
+        
+      out.write("\n");
       out.write("        <div id=\"login-container\">\n");
       out.write("            <div id=\"login-content-container\">\n");
       out.write("                <div id=\"login-content\">\n");
@@ -65,10 +73,15 @@ public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <img src=\"https://img.icons8.com/color/96/undefined/facebook-messenger--v1.png\"/>\n");
       out.write("                    </div>\n");
       out.write("                    <div id=\"container\">\n");
-      out.write("                        <form>\n");
-      out.write("                            <input type=\"text\" placeholder=\"Username\"><br>\n");
-      out.write("                            <input type=\"password\" placeholder=\"Password\"><br>\n");
+      out.write("                        <form action=\"LoginServlet\" method=\"post\">\n");
+      out.write("                            <input type=\"text\" placeholder=\"Username\" name=\"username\"><br>\n");
+      out.write("                            <input type=\"password\" placeholder=\"Password\" name=\"password\"><br>\n");
       out.write("                            <a href=\"Forgotpassword.jsp\" id=\"forgotPass\">Forgot Password</a><br>\n");
+      out.write("                            <div id=\"msg\">\n");
+      out.write("                                ");
+      out.print(msg);
+      out.write("\n");
+      out.write("                            </div> \n");
       out.write("                            <button type=\"submit\" >Sign In</button>\n");
       out.write("                            <button ><a href=\"signup.jsp\">Sign Up</a></button>\n");
       out.write("                        </form>\n");
