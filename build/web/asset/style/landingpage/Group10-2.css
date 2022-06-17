@@ -18,10 +18,14 @@
 footer {
     background: #212529;
   }
+footer {
+    background: #212529;
+}
 .nav{
     display: flex;
     list-style: none;
     justify-content: center;
+    height: 66px;
 }
 .menu{
     background-color: #212529;
@@ -34,7 +38,7 @@ footer {
 .navbar_link{
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 7px;
+    padding-top: 18px;
 }
 .navbar_link_login{
     padding-left: 160px;
