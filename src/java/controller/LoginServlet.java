@@ -5,12 +5,15 @@
 
 package controller;
 
+import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import model.User;
 
 /**
  *
@@ -68,11 +71,13 @@ public class LoginServlet extends HttpServlet {
     throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        
+        UserDAO userDao = new UserDAO();
         // Kiểm tra trên db nếu có thì sẽ chuyển sang trang chủ
-        if(username.equals("Dung") && password.equals("123")) {
-            request.setAttribute("msg", "Login Success");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
+        if(userDao.checkAccount(username, password)) {
+            User u = userDao.getAccount(username);
+            HttpSession session = request.getSession();
+            session.setAttribute("user", u);
+            request.getRequestDispatcher("Welcome.jsp").forward(request, response);
         } else {
             // Nếu không có thì quay về trang sign in và hiện ra thông báo 
             request.setAttribute("msg", "Username or password is incorrect");
