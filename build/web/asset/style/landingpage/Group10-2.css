@@ -1,0 +1,47 @@
+
+.background img{
+    width: 1519px;
+    height: 600px;
+    margin-left: 0;
+}
+.slogan{   
+    position: absolute;
+    bottom: 60%;
+    left: 80px;
+}
+.slogan span{
+    font-size: 60px;
+}
+.slogan p{
+    font-size: 30px;
+}
+footer {
+    background: #212529;
+  }
+.nav{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+.menu{
+    background-color: #212529;
+}
+.navbar_link a{
+    font-size: 20px;
+    padding: 10px 5px;
+    color: white;
+}
+.navbar_link{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 7px;
+}
+.navbar_link_login{
+    padding-left: 160px;
+}   
+.navbar_link_login a{
+    font-size: 30px;
+    padding: 10px 5px;
+    color: white;
+}
+
