@@ -44,7 +44,8 @@ public final class computer_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("<!Doctype html>\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("\r\n");
       out.write("<html class=\"no-js\" lang=\"zxx\">\r\n");
       out.write("   <head>\r\n");
       out.write("      <meta charset=\"utf-8\">\r\n");
@@ -428,7 +429,7 @@ public final class computer_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      <!-- JS here -->\r\n");
       out.write("      \r\n");
       out.write("   </body>\r\n");
-      out.write("</html>\r\n");
+      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

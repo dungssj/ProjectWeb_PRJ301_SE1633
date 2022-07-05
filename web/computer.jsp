@@ -17,11 +17,11 @@
       <!-- Place favicon.ico in the root directory -->
       <link rel="shortcut icon" type="image/x-icon" href="">
       <!-- CSS here -->
-      <link rel="stylesheet" href="css/bootstrap.css">
-      <link rel="stylesheet" href="css/flaticon.css">
-      <link rel="stylesheet" href="css/font-awesome-pro.css">
-      <link rel="stylesheet" href="css/default.css">
-      <link rel="stylesheet" href="css/shop.css">
+      <link rel="stylesheet" href="asset/style/shop/bootstrap.css">
+      <link rel="stylesheet" href="asset/style/shop/flaticon.css">
+      <link rel="stylesheet" href="asset/style/shop/font-awesome-pro.css">
+      <link rel="stylesheet" href="asset/style/shop/default.css">
+      <link rel="stylesheet" href="asset/style/shop/shop.css">
       
    </head>
    <body>
@@ -101,7 +101,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href=".html">
-                                                            <img src="img/tp-2.jpg" alt="product">
+                                                            <img src="asset/img/shop/tp-2.jpg" alt="product">
                                                         </a>
                                                     </div>
 
@@ -126,7 +126,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="img/tp-3.jpg" alt="product">
+                                                            <img src="asset/img/shop/tp-3.jpg" alt="product">
                                                         </a>
                                                     </div>
 
@@ -151,7 +151,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="img/tp-4.jpg" alt="product">
+                                                            <img src="asset/img/shop/tp-4.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                     
@@ -176,7 +176,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="img/tp-5.jpg" alt="product">
+                                                            <img src="asset/img/shop/tp-5.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                     
@@ -201,7 +201,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="img/tp-6.jpg" alt="product">
+                                                            <img src="asset/img/shop/tp-6.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                     
@@ -226,7 +226,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="img/tp-7.jpg" alt="product">
+                                                            <img src="asset/img/shop/tp-7.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                    
@@ -251,7 +251,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="img/tp-10.jpg" alt="product">
+                                                            <img src="asset/img/shop/tp-10.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                     
@@ -276,7 +276,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="img/tp-9.jpg" alt="product">
+                                                            <img src="asset/img/shop/tp-9.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                     
