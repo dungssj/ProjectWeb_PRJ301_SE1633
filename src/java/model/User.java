@@ -20,11 +20,14 @@ public class User {
     private String gender;
     private String dob;
     private String accountType;
+    private String phoneNumber;
+    private String city;
+    private String postcode;
 
     public User() {
     }
 
-    public User(int userID, String userName, String password, String email, String address, String gender, String dob, String accountType) {
+    public User(int userID, String userName, String password, String email, String address, String gender, String dob, String accountType, String phoneNumber, String city, String postcode) {
         this.userID = userID;
         this.userName = userName;
         this.password = password;
@@ -33,6 +36,9 @@ public class User {
         this.gender = gender;
         this.dob = dob;
         this.accountType = accountType;
+        this.phoneNumber = phoneNumber;
+        this.city = city;
+        this.postcode = postcode;
     }
 
     public int getUserID() {
@@ -98,6 +104,31 @@ public class User {
     public void setAccountType(String accountType) {
         this.accountType = accountType;
     }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+    
     
     
 }
