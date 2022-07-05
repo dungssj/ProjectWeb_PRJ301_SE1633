@@ -82,7 +82,10 @@ public class UserDAO {
                 Date dob = rs.getDate(7);
                 String dobString = sdf.format(dob);
                 String accountType = rs.getString(8);
-                u = new User(id, name, password, email, address, gender, dobString, accountType);
+                String phoneNumber = rs.getString(9);
+                String city = rs.getString(10);
+                String postCode = rs.getString(11);
+                u = new User(id, name, password, email, address, gender, dobString, accountType, phoneNumber, city, postCode);
             }
 
         } catch (Exception e) {
