@@ -17,11 +17,12 @@
       <!-- Place favicon.ico in the root directory -->
       <link rel="shortcut icon" type="image/x-icon" href="">
       <!-- CSS here -->
-      <link rel="stylesheet" href="asset/style/shop/bootstrap.css">
-      <link rel="stylesheet" href="asset/style/shop/flaticon.css">
-      <link rel="stylesheet" href="asset/style/shop/font-awesome-pro.css">
-      <link rel="stylesheet" href="asset/style/shop/default.css">
-      <link rel="stylesheet" href="asset/style/shop/shop.css">
+      <link rel="stylesheet" href="css/bootstrap.css">
+      <link rel="stylesheet" href="css/flaticon.css">
+      <link rel="stylesheet" href="css/font-awesome-pro.css">
+      <link rel="stylesheet" href="css/default.css">
+      <link rel="stylesheet" href="css/shop.css">
+      
    </head>
    <body>
       
@@ -34,9 +35,7 @@
                         <div class=" col-md-6 ">
                             <div class="header__info">
                                 <div class="logo">
-                                   <span class="first"></span>
-                                        <span class="second"></span>
-                                        <span class="third"></span>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -102,7 +101,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href=".html">
-                                                            <img src="asset/img/shop/tp-2.jpg" alt="product">
+                                                            <img src="img/tp-2.jpg" alt="product">
                                                         </a>
                                                     </div>
 
@@ -127,7 +126,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="asset/img/shop/tp-3.jpg" alt="product">
+                                                            <img src="img/tp-3.jpg" alt="product">
                                                         </a>
                                                     </div>
 
@@ -152,7 +151,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="asset/img/shop/tp-4.jpg" alt="product">
+                                                            <img src="img/tp-4.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                     
@@ -177,7 +176,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="asset/img/shop/tp-5.jpg" alt="product">
+                                                            <img src="img/tp-5.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                     
@@ -202,7 +201,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="asset/img/shop/tp-6.jpg" alt="product">
+                                                            <img src="img/tp-6.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                     
@@ -227,7 +226,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="asset/img/shop/tp-7.jpg" alt="product">
+                                                            <img src="img/tp-7.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                    
@@ -252,7 +251,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="asset/img/shop/tp-10.jpg" alt="product">
+                                                            <img src="img/tp-10.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                     
@@ -277,7 +276,7 @@
                                                 <div class="product__thumb fix">
                                                     <div class="product-image w-img">
                                                         <a href="product-.html">
-                                                            <img src="asset/img/shop/tp-9.jpg" alt="product">
+                                                            <img src="img/tp-9.jpg" alt="product">
                                                         </a>
                                                     </div>
                                                     
@@ -302,10 +301,43 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="tp-pagination text-center">
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="basic-pagination pt-30 pb-30">
+                                        <nav>
+                                           <ul>
+                                              <li>
+                                                 <a href="#" class="active">1</a>
+                                              </li>
+                                              <li>
+                                                 <a href="Computer.html">2</a>
+                                              </li>
+                                              <li>
+                                                 <a href="shop.html">3</a>
+                                              </li>
+                                             <li>
+                                                <a href="shop.html">4</a>
+                                             </li>
+                                             <li>
+                                                <a href="shop.html">5</a>
+                                             </li>
+                                              <li>
+                                                 <!-- <a href="shop.html">
+                                                    <i class="fal fa-angle-double-right"></i>
+                                                 </a> -->
+                                              </li>
+                                           </ul>
+                                         </nav>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- shop-area-end -->
 
 
@@ -317,12 +349,12 @@
         <div class="container py-4">
             <div class="row gy-4 gx-5">
                 <div class="col-lg-4 col-md-6">
-                    <h5 class="h1 text-white">Group 10</h5>
+                    <h5 class="h1 text-black">Group 10</h5>
                     <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
 
                 </div>
                 <div class="col-lg-2 col-md-6">
-                    <h5 class="text-white mb-3">Quick links</h5>
+                    <h5 class="text-black mb-3">Quick links</h5>
                     <ul class="list-unstyled text-muted">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About</a></li>
@@ -331,7 +363,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6">
-                    <h5 class="text-white mb-3">Quick links</h5>
+                    <h5 class="text-black mb-3">Quick links</h5>
                     <ul class="list-unstyled text-muted">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About</a></li>
@@ -340,7 +372,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-3">Newsletter</h5>
+                    <h5 class="text-black mb-3">Newsletter</h5>
                     <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
                     <form action="#">
                         <div class="input-group mb-3">
