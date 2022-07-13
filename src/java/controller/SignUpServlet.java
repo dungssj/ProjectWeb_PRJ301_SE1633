@@ -12,14 +12,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import model.User;
 
 /**
  *
  * @author Dung
  */
-public class LoginServlet extends HttpServlet {
+public class SignUpServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,10 +35,10 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");  
+            out.println("<title>Servlet SignUpServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet SignUpServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,7 +55,21 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        String password = request.getParameter("password");
+        String repassword = request.getParameter("repassword");
+        String phoneNumber = request.getParameter("phonenumber");
+        String gender = request.getParameter("gender");
+        if(!password.equals(repassword)) {
+            request.setAttribute("msgPassword", "Password and repassword are not the same");
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
+            return;
+        }
+        UserDAO userDao = new UserDAO();
+        userDao.insertUser(new User(0,username, password, email, address, gender, null, null, phoneNumber, null, null));
+        response.sendRedirect("Login.jsp");
     } 
 
     /** 
@@ -69,21 +82,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        UserDAO userDao = new UserDAO();
-        // Kiểm tra trên db nếu có thì sẽ chuyển sang trang chủ
-        if(userDao.checkAccount(username, password)) {
-            User u = userDao.getAccount(username);
-            HttpSession session = request.getSession();
-            String name = u.getUserName();
-            session.setAttribute("user", u);
-            request.getRequestDispatcher("Welcome.jsp").forward(request, response);
-        } else {
-            // Nếu không có thì quay về trang sign in và hiện ra thông báo 
-            request.setAttribute("msg", "Username or password is incorrect");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /** 
