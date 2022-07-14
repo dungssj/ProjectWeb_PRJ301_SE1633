@@ -5,23 +5,18 @@
 
 package controller;
 
-import dao.ProductDAO;
-import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.util.ArrayList;
-import model.Product;
 
 /**
  *
- * @author Admin
+ * @author Dung
  */
-public class LandingPageServlet extends HttpServlet {
+public class LogOutServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,15 +28,17 @@ public class LandingPageServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-                HttpSession session = request.getSession();
-        PrintWriter out = response.getWriter();
-        try {
-            ProductDAO pro = new ProductDAO();          
-            ArrayList<Product> listAll = pro.getNewProduct();
-            request.setAttribute("list", listAll);
-            request.getRequestDispatcher("LandingPage.jsp").forward(request, response);
-        } catch (NumberFormatException e) {
-            out.print("Error :" + e.getMessage());
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet LogOutServlet</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet LogOutServlet at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     } 
 
@@ -56,7 +53,8 @@ public class LandingPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        request.getSession().removeAttribute("user");
+        response.sendRedirect("Login.jsp");
     } 
 
     /** 
@@ -70,7 +68,6 @@ public class LandingPageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
-        
     }
 
     /** 
