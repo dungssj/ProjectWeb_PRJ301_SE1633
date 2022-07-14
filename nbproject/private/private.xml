@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Group10_SE1633/ProjectWeb_PRJ301_SE1633/src/java/product/Customer.java</file>
-            <file>file:/D:/Group10_SE1633/ProjectWeb_PRJ301_SE1633/src/java/DBconnect/productDAO.java</file>
-            <file>file:/D:/Group10_SE1633/ProjectWeb_PRJ301_SE1633/src/java/product/product.java</file>
-            <file>file:/D:/Group10_SE1633/ProjectWeb_PRJ301_SE1633/src/java/DBconnect/DBcontact.java</file>
+            <file>file:/D:/Project_WebPRJ301/ProjectWeb_PRJ301_SE1633/src/java/model/Product.java</file>
+            <file>file:/D:/Project_WebPRJ301/ProjectWeb_PRJ301_SE1633/web/LandingPage.jsp</file>
+            <file>file:/D:/Project_WebPRJ301/ProjectWeb_PRJ301_SE1633/src/java/controller/LandingPageServlet.java</file>
+            <file>file:/D:/Project_WebPRJ301/ProjectWeb_PRJ301_SE1633/src/java/dao/ProductDAO.java</file>
         </group>
     </open-files>
 </project-private>

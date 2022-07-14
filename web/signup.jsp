@@ -29,39 +29,39 @@
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
       
-                    <form action="SignUp" method="get">
+                      <form>
                         <h5 class="fs-2 fw-bold mb-3 pb-3">Sign up your information</h5>
                         <div class="row">
                             <div class="col-5">
                                 <div class="form-outline mb-2">
-                                    <input type="text" id="username" class="form-control form-control-lg" name="username" required=""/>
+                                    <input type="text" id="username" class="form-control form-control-lg" />
                                     <label class="form-label" for="username">Username</label>
                                 </div>
                             </div>
                                 
                             <div class="col-7">
                                 <div class="form-outline mb-2">
-                                    <input type="email" id="email" class="form-control form-control-lg" name="email" required=""/>
+                                    <input type="email" id="email" class="form-control form-control-lg" />
                                     <label class="form-label" for="email">Email address</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-outline mb-2">
-                            <input type="text" id="form2Example27" class="form-control form-control-lg" name="address" required=""/>
+                          <input type="text" id="form2Example27" class="form-control form-control-lg" />
                           <label class="form-label" for="form2Example27">Address</label>
                         </div>
                         
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-outline mb-2">
-                                    <input type="password" id="pass" class="form-control form-control-lg" name="password" required="" pattern=".{6,20}"/>
+                                    <input type="password" id="pass" class="form-control form-control-lg" />
                                     <label class="form-label" for="pass">Password</label>
                                 </div>
                             </div>
                                 
                             <div class="col-6">
                                 <div class="form-outline mb-2">
-                                    <input type="password" id="email" class="form-control form-control-lg" name="repassword" required="" pattern=".{6,20}"/>
+                                    <input type="password" id="email" class="form-control form-control-lg" />
                                     <label class="form-label" for="email">Re-enter password</label>
                                 </div>
                             </div>
@@ -69,23 +69,23 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-outline mb-2">
-                                    <input type="text" id="Phonenumber" class="form-control form-control-lg" name="phonenumber" required=""/>
+                                    <input type="text" id="Phonenumber" class="form-control form-control-lg" />
                                     <label class="form-label" for="Phonenumber">Phone number</label>
                                 </div>
                             </div>
                                 
                             <div class="col-8">
-                                <select class="form-select form-select-lg" aria-label=".form-select-lg example" name="gender" required="">
+                                <select class="form-select form-select-lg" aria-label=".form-select-lg example">
                                     <option selected>Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>                                
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                    <option value="3">Other</option>
                                 </select>
                             </div>
                         </div>
                     
-                        <div class="pt-1 mb-3">
-                            <button class="btn btn-dark btn-lg btn-block" type="submit">Register</button>
-                            <p class="mt-2">${msgPassword}</p>
+                        <div class="pt-1 mb-5">
+                          <button class="btn btn-dark btn-lg btn-block" type="button">Register</button>
                         </div>
                         <a href="#!" class="small text-muted">Terms of use.</a>
                         <a href="#!" class="small text-muted">Privacy policy</a>
