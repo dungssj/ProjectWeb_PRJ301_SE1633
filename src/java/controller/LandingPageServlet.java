@@ -42,6 +42,7 @@ public class LandingPageServlet extends HttpServlet {
             request.getRequestDispatcher("LandingPage.jsp").forward(request, response);
         } catch (NumberFormatException e) {
             out.print("Error :" + e.getMessage());
+            //test
         }
     } 
 
