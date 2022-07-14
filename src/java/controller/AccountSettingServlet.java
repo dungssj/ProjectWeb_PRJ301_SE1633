@@ -54,6 +54,9 @@ public class AccountSettingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        if(request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("Login.jsp");
+        }
         User u =(User) request.getSession().getAttribute("user");
         request.setAttribute("user", u);
         request.getRequestDispatcher("AccountInformation.jsp").forward(request, response);
