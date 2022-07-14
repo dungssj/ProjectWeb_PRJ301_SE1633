@@ -76,6 +76,7 @@ public class LoginServlet extends HttpServlet {
         if(userDao.checkAccount(username, password)) {
             User u = userDao.getAccount(username);
             HttpSession session = request.getSession();
+            String name = u.getUserName();
             session.setAttribute("user", u);
             request.getRequestDispatcher("Welcome.jsp").forward(request, response);
         } else {
@@ -83,8 +84,6 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("msg", "Username or password is incorrect");
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
-        
-        
     }
 
     /** 
