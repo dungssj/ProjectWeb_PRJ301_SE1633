@@ -9,6 +9,14 @@
         <servlet-class>controller.AccountSettingServlet</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
+        <servlet-name>LandingPageServlet</servlet-name>
+        <servlet-class>controller.LandingPageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminPageServlet</servlet-name>
+        <servlet-class>controller.AdminPageServlet</servlet-class>
+=======
         <servlet-name>UpdateInformationServlet</servlet-name>
         <servlet-class>controller.UpdateInformationServlet</servlet-class>
     </servlet>
@@ -23,10 +31,7 @@
     <servlet>
         <servlet-name>ChangePasswordServlet</servlet-name>
         <servlet-class>controller.ChangePasswordServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LogOutServlet</servlet-name>
-        <servlet-class>controller.LogOutServlet</servlet-class>
+>>>>>>> dceebec5a03f388443f664a29b0cbe55aea9f02e
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -37,6 +42,14 @@
         <url-pattern>/Account</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
+        <servlet-name>LandingPageServlet</servlet-name>
+        <url-pattern>/landingpage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminPageServlet</servlet-name>
+        <url-pattern>/AdminPageServlet</url-pattern>
+=======
         <servlet-name>UpdateInformationServlet</servlet-name>
         <url-pattern>/UpdateInformation</url-pattern>
     </servlet-mapping>
@@ -51,10 +64,7 @@
     <servlet-mapping>
         <servlet-name>ChangePasswordServlet</servlet-name>
         <url-pattern>/ChangePassword</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LogOutServlet</servlet-name>
-        <url-pattern>/Logout</url-pattern>
+>>>>>>> dceebec5a03f388443f664a29b0cbe55aea9f02e
     </servlet-mapping>
     <session-config>
         <session-timeout>
