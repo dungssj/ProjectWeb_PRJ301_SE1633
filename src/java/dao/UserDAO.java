@@ -50,7 +50,7 @@ public class UserDAO {
 
         } catch (Exception e) {
             String mess = e.toString();
-            System.out.println("" + mess);
+            System.out.println("Check Account:" + mess);
         }
         return false;
     }
@@ -67,7 +67,6 @@ public class UserDAO {
             // lặp theo từng dòng
             while (rs.next()) {
                 //lấy giá trị theo từng cột
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 int id = rs.getInt(1);
                 String name = rs.getString(2);
                 String password = rs.getString(3);
@@ -82,19 +81,113 @@ public class UserDAO {
                     gender += "Female";
                 }
                 Date dob = rs.getDate(7);
-                String dobString = sdf.format(dob);
+                String dobString = dob.toString();
                 String accountType = rs.getString(8);
                 String phoneNumber = rs.getString(9);
                 String city = rs.getString(10);
                 String postCode = rs.getString(11);
-                u = new User(id, name, password, email, address, gender, dobString, accountType, phoneNumber, city, postCode);
+                u = new User(id, name, password, email, address, gender, dob.toString(), accountType, phoneNumber, city, postCode);
             }
 
         } catch (Exception e) {
             String mess = e.toString();
-            System.out.println("" + mess);
+            System.out.println("Get account:" + mess);
         }
         return u;
+    }
+    
+    public void updateAccountInformation(User u) {
+        String sql = "UPDATE [dbo].[User]\n"
+                + "   SET [UserName] = ?\n"
+                + "      ,[Email] = ?\n"
+                + "      ,[Address] = ?\n"
+                + "      ,[Gender] = ?\n"
+                + "      ,[DOB] = ?\n"
+                + "      ,[PhoneNumber] = ?\n"
+                + "      ,[City] = ?\n"
+                + "      ,[Postcode] = ?\n" +
+                  " WHERE [User].UserID = ?";
+        try {
+            // tạo khay chứa câu lệnh 
+            PreparedStatement pre = connection.prepareStatement(sql);
+            String dobString = u.getDob();
+            
+            boolean genderBool = false;
+            if(u.isGender().equals("Male")) {
+                genderBool = true;
+            }
+            pre.setString(1, u.getUserName());
+            pre.setString(2, u.getEmail());
+            pre.setString(3, u.getAddress());
+            pre.setBoolean(4, genderBool);
+            pre.setString(5, u.getDob());
+            pre.setString(6, u.getPhoneNumber());
+            pre.setString(7, u.getCity());
+            pre.setString(8, u.getPostcode());
+            pre.setInt(9, u.getUserID());
+            pre.executeUpdate();
+        } catch (Exception e) {
+            String mess = e.toString();
+            System.out.println("Update account information: " + mess);
+
+        }
+    }
+    
+    public void insertUser(User u) {
+        String sql = "INSERT INTO [dbo].[User]\n"
+                + "           ([UserName]\n"
+                + "           ,[Password]\n"
+                + "           ,[Email]\n"
+                + "           ,[Address]\n"
+                + "           ,[Gender]\n"
+                + "           ,[DOB]\n"
+                + "           ,[AccountType]\n"
+                + "           ,[PhoneNumber]\n"
+                + "           ,[City]\n"
+                + "           ,[Postcode])\n"
+                + "     VALUES\n"
+                + "           (?\n"
+                + "           ,?\n"
+                + "           ,?\n"
+                + "           ,?\n"
+                + "           ,?\n"
+                + "           ,''\n"
+                + "           ,''\n"
+                + "           ,?\n"
+                + "           ,''\n"
+                + "           ,'')";
+        try {
+            // tạo khay chứa câu lệnh 
+            PreparedStatement pre = connection.prepareStatement(sql);
+            boolean genderBool = false;
+            if(u.isGender().equals("Male")) {
+                genderBool = true;
+            }
+            pre.setString(1, u.getUserName());
+            pre.setString(2, u.getPassword());
+            pre.setString(3, u.getEmail());
+            pre.setString(4, u.getAddress());
+            pre.setBoolean(5, genderBool);
+            pre.setString(6, u.getPhoneNumber());
+            pre.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Insert user:" + e);
+        }
+    }
+    
+    public void updatePassword(String newPassword, User u) {
+        String sql = "update dbo.[User]\n"
+                + "set [Password] = ?\n"
+                + "where [UserID] = ?";
+         try {
+            // tạo khay chứa câu lệnh 
+            PreparedStatement pre = connection.prepareStatement(sql);
+            pre.setString(1, newPassword);
+            pre.setInt(2, u.getUserID());
+            pre.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Update password: " + e);
+        }
     }
     
     public static void main(String[] args) {

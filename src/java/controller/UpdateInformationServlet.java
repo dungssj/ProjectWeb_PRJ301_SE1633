@@ -12,14 +12,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import model.User;
 
 /**
  *
  * @author Dung
  */
-public class LoginServlet extends HttpServlet {
+public class UpdateInformationServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,10 +35,10 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");  
+            out.println("<title>Servlet UpdateInformationServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet UpdateInformationServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,7 +55,21 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        User uSession = (User) request.getSession().getAttribute("user");
+        String username = request.getParameter("username");
+        String phoneNumber = request.getParameter("phonenumber");
+        String email = request.getParameter("email");
+        String gender = request.getParameter("gender");
+        String dob = request.getParameter("dob");
+        String address = request.getParameter("address");
+        String city = request.getParameter("city");
+        String postcode = request.getParameter("postcode");
+        User u = new User(uSession.getUserID(), username, uSession.getPassword(), email, 
+                address, gender, dob, postcode, phoneNumber, city, postcode);
+        UserDAO userDao = new UserDAO();
+        userDao.updateAccountInformation(u);
+        request.setAttribute("user", u);
+        request.getRequestDispatcher("AfterAccount").forward(request, response);
     } 
 
     /** 
@@ -69,21 +82,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        UserDAO userDao = new UserDAO();
-        // Kiểm tra trên db nếu có thì sẽ chuyển sang trang chủ
-        if(userDao.checkAccount(username, password)) {
-            User u = userDao.getAccount(username);
-            HttpSession session = request.getSession();
-            String name = u.getUserName();
-            session.setAttribute("user", u);
-            request.getRequestDispatcher("Welcome.jsp").forward(request, response);
-        } else {
-            // Nếu không có thì quay về trang sign in và hiện ra thông báo 
-            request.setAttribute("msg", "Username or password is incorrect");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /** 
