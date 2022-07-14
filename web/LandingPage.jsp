@@ -30,7 +30,6 @@
             <li class="navbar_link"><a></a></li>
             <li class="navbar_link"><a></a></li>
             <li class="navbar_link"><a></a></li>
-            <li class="navbar_link"><a></a></li>
             <li class="navbar_link"><a href="#">HOME</a></li>
             <li class="navbar_link"><a href="#">SHOP</a></li>
             <li class="navbar_link"><a href="#">ABOUT US</a></li>
@@ -45,7 +44,14 @@
                         </div>
                     </div>
                 </a></li>
-            <li class="navbar_link"><a href="#" class="nav-dropdown-hover"><i class="glyphicon glyphicon-user"></i></a></li>
+            <div class="dropdown">
+                <li class="navbar_link"><a href="#" class="nav-dropdown-hover"><i class="glyphicon glyphicon-user"></i></a></li>
+                <div class="dropdown-content">
+                    <a href="#" class="drop1">Log out</a>
+                    <div class="drop_space"></div>
+                    <a href="#" class="drop2">Account Setting</a>
+                </div>
+            </div>
         </ul>
     </div>
     <div class="background">
@@ -87,8 +93,8 @@
                                         <span class="product-title">${item.getProductName()}</span>
                                         <div class="price">
                                             <del>
-                                            <span class="regular"></span>
-                                        </del> 
+                                                <span class="regular"></span>
+                                            </del> 
                                             <ins>
                                                 <span class="amount">${item.getPrice()}</span>
                                             </ins>
