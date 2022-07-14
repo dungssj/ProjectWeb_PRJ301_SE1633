@@ -11,13 +11,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.User;
 
 /**
  *
  * @author Dung
  */
-public class AccountSettingServlet extends HttpServlet {
+public class LogOutServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -34,10 +33,10 @@ public class AccountSettingServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AccountSettingServlet</title>");  
+            out.println("<title>Servlet LogOutServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AccountSettingServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet LogOutServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -54,14 +53,9 @@ public class AccountSettingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        if(request.getSession().getAttribute("user") == null) {
-            response.sendRedirect("Login.jsp");
-            return;
-        }
-        User u =(User) request.getSession().getAttribute("user");
-        request.setAttribute("user", u);
-        request.getRequestDispatcher("AccountInformation.jsp").forward(request, response);
-   } 
+        request.getSession().removeAttribute("user");
+        response.sendRedirect("Login.jsp");
+    } 
 
     /** 
      * Handles the HTTP <code>POST</code> method.
