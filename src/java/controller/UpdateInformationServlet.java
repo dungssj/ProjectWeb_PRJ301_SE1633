@@ -5,7 +5,6 @@
 
 package controller;
 
-import dao.ProductDAO;
 import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,15 +12,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.util.ArrayList;
-import model.Product;
+import model.User;
 
 /**
  *
- * @author Admin
+ * @author Dung
  */
-public class LandingPageServlet extends HttpServlet {
+public class UpdateInformationServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,15 +30,17 @@ public class LandingPageServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-                HttpSession session = request.getSession();
-        PrintWriter out = response.getWriter();
-        try {
-            ProductDAO pro = new ProductDAO();          
-            ArrayList<Product> listAll = pro.getNewProduct();
-            request.setAttribute("list", listAll);
-            request.getRequestDispatcher("LandingPage.jsp").forward(request, response);
-        } catch (NumberFormatException e) {
-            out.print("Error :" + e.getMessage());
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet UpdateInformationServlet</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet UpdateInformationServlet at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     } 
 
@@ -56,7 +55,21 @@ public class LandingPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        User uSession = (User) request.getSession().getAttribute("user");
+        String username = request.getParameter("username");
+        String phoneNumber = request.getParameter("phonenumber");
+        String email = request.getParameter("email");
+        String gender = request.getParameter("gender");
+        String dob = request.getParameter("dob");
+        String address = request.getParameter("address");
+        String city = request.getParameter("city");
+        String postcode = request.getParameter("postcode");
+        User u = new User(uSession.getUserID(), username, uSession.getPassword(), email, 
+                address, gender, dob, postcode, phoneNumber, city, postcode);
+        UserDAO userDao = new UserDAO();
+        userDao.updateAccountInformation(u);
+        request.setAttribute("user", u);
+        request.getRequestDispatcher("AfterAccount").forward(request, response);
     } 
 
     /** 
@@ -70,7 +83,6 @@ public class LandingPageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
-        
     }
 
     /** 

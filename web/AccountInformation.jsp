@@ -26,7 +26,7 @@
                                     <div class="img-container mt-5 w-100 d-flex justify-content-center">
                                         <img src="asset/img/login/girl-with-red-hat-Z6SXt1v5tP8-unsplash.jpg" class="img-fluid">                                      
                                     </div>
-                                    <h6 class="text-center mt-2 mb-4 userName" style="color: white;">dungssj12</h6>
+                                    <h6 class="text-center mt-2 mb-4 userName" style="color: white;">${user.getUserName()}</h6>
                                     <ul class="p-0">
                                         <li><a href="AccountInformation.jsp">Account</a></li>
                                         <li><a href="HistoryOrder.jsp">History</a></li>
@@ -55,7 +55,7 @@
                                             </div>
                                             <div class="col-6 mb-3">
                                                 <label>Birthday</label>
-                                                <input type="date" name="dob" value="${user.getDob()}" class="form-control">
+                                                <input type="date" name="dob" value='${user.getDob()}' class="form-control">
                                             </div>
                                         </div>
                                         <h2>Address</h2>

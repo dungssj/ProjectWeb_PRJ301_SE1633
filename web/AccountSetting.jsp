@@ -4,6 +4,8 @@
     Author     : Dung
 --%>
 
+<%@page import="model.User"%>
+<%@page import="javafx.scene.web.WebErrorEvent"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +28,7 @@
                                     <div class="img-container mt-5 w-100 d-flex justify-content-center">
                                         <img src="asset/img/login/girl-with-red-hat-Z6SXt1v5tP8-unsplash.jpg" class="img-fluid">                                                                         
                                     </div>
-                                    <h6 class="text-center mt-2 mb-4 userName" style="color: white;">dungssj12</h6>
+                                    <h6 class="text-center mt-2 mb-4 userName" style="color: white;">${user.getUserName()}</h6>
                                     <ul class="p-0">
                                         <li><a href="AccountInformation.jsp">Account</a></li>
                                         <li><a href="HistoryOrder.jsp">History</a></li>
@@ -36,49 +38,67 @@
                                 </div>
                                 <div class="col-md-9 content-container py-4 px-5 h-100">
                                         <h2>General Information</h2>
-                                        <div class="row my-4">
-                                            <div class="col-6 mb-3">
-                                                <label>Username</label>
-                                                <input type="text" name="username" value="" class="form-control">
+                                        <form action="UpdateInformation" method="get">
+                                            <div class="row my-4">
+                                                <div class="col-6 mb-3">
+                                                    <label>Username</label>
+                                                    <input type="text" name="username" value="${user.getUserName()}" class="form-control">
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <label>Phone Number</label>
+                                                    <input type="text" name="phonenumber" value="${user.getPhoneNumber()}" class="form-control">
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <label>Email address</label>
+                                                    <input type="email" name="email" value="${user.getEmail()}" class="form-control">
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <label>Gender</label>
+                                                    <%
+                                                        User u = new User();
+                                                        if(request.getSession().getAttribute("user") != null) {
+                                                            u = (User) request.getSession().getAttribute("user");
+                                                        }
+                                                        String gender = u.isGender();
+                                                        if(gender.equals("Male")) {
+                                                    %>
+                                                            <select class="form-select form-select" aria-label=".form-select-lg example" name="gender">
+                                                                <option value="Male" selected>Male</option>
+                                                                <option value="Female">Female</option>
+                                                            </select>
+                                                    <%
+                                                        } else {
+                                                            %>
+                                                            <select class="form-select form-select" aria-label=".form-select-lg example" name="gender">
+                                                                <option value="Male">Male</option>
+                                                                <option value="Female" selected="">Female</option>
+                                                            </select>
+                                                    <%
+                                                        }
+                                                    %>
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                    <label>Birthday</label>
+                                                    <input type="date" name="dob" value="${user.getDob()}" class="form-control">
+                                                </div>
                                             </div>
-                                            <div class="col-6 mb-3">
-                                                <label>Phone Number</label>
-                                                <input type="text" name="phonenumber" value="" class="form-control">
+                                            <h2>Address</h2>
+                                            <div class="row my-4">
+                                                <div class="col-12 mb-3">
+                                                    <label>Address</label>
+                                                    <input type="text" name="address" value="${user.getAddress()}" class="form-control" placeholder="Enter your address">
+                                                </div>
+                                                <div class="col-6 mb-1">
+                                                    <label>City</label>
+                                                    <input type="text" name="city" value="${user.getCity()}" class="form-control" placeholder="">
+                                                </div>
+                                                <div class="col-6 mb-1">
+                                                    <label>Postcode</label>
+                                                    <input type="number" name="postcode" value="${user.getPostcode()}" class="form-control" placeholder="">
+                                                </div>
                                             </div>
-                                            <div class="col-6 mb-3">
-                                                <label>Email address</label>
-                                                <input type="email" name="email" value="" class="form-control">
-                                            </div>
-                                            <div class="col-6 mb-3">
-                                                <label>Gender</label>
-                                                <select class="form-select form-select" aria-label=".form-select-lg example" name="gender">
-                                                    <option selected>Gender</option>
-                                                    <option value="Male">Male</option>
-                                                    <option value="Female">Female</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-6 mb-3">
-                                                <label>Birthday</label>
-                                                <input type="date" name="dob" value="" class="form-control">
-                                            </div>
-                                        </div>
-                                        <h2>Address</h2>
-                                        <div class="row my-4">
-                                            <div class="col-12 mb-3">
-                                                <label>Address</label>
-                                                <input type="text" name="address" value="" class="form-control" placeholder="Enter your address">
-                                            </div>
-                                            <div class="col-6 mb-1">
-                                                <label>City</label>
-                                                <input type="text" name="city" value="" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="col-6 mb-1">
-                                                <label>Postcode</label>
-                                                <input type="number" name="postcode" value="" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
-                                        <button class="btn btn-success">Save All</button>
+                                                <input type="submit" class="btn btn-success" value="Save all">
+                                        </form>
                                 </div>
                           </div>
                     </div>

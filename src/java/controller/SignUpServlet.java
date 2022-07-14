@@ -5,22 +5,20 @@
 
 package controller;
 
-import dao.ProductDAO;
+import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.util.ArrayList;
-import model.Product;
+import model.User;
 
 /**
  *
- * @author Admin
+ * @author Dung
  */
-public class AdminPageServlet extends HttpServlet {
+public class SignUpServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -32,18 +30,17 @@ public class AdminPageServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-                HttpSession session = request.getSession();
-        PrintWriter out = response.getWriter();
-        try {
-            ProductDAO pro = new ProductDAO();          
-            ArrayList<Product> listAll = pro.getNewProduct();
-            request.setAttribute("list", listAll);
-            request.getRequestDispatcher("LandingPageAdmin.jsp").forward(request, response);
-            if(request.getParameter("admin")!=null){
-                
-            }
-        } catch (NumberFormatException e) {
-            out.print("Error :" + e.getMessage());
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SignUpServlet</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet SignUpServlet at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     } 
 
@@ -58,7 +55,21 @@ public class AdminPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        String password = request.getParameter("password");
+        String repassword = request.getParameter("repassword");
+        String phoneNumber = request.getParameter("phonenumber");
+        String gender = request.getParameter("gender");
+        if(!password.equals(repassword)) {
+            request.setAttribute("msgPassword", "Password and repassword are not the same");
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
+            return;
+        }
+        UserDAO userDao = new UserDAO();
+        userDao.insertUser(new User(0,username, password, email, address, gender, null, null, phoneNumber, null, null));
+        response.sendRedirect("Login.jsp");
     } 
 
     /** 
