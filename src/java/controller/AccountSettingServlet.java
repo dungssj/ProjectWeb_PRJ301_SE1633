@@ -56,6 +56,7 @@ public class AccountSettingServlet extends HttpServlet {
     throws ServletException, IOException {
         if(request.getSession().getAttribute("user") == null) {
             response.sendRedirect("Login.jsp");
+            return;
         }
         User u =(User) request.getSession().getAttribute("user");
         request.setAttribute("user", u);
