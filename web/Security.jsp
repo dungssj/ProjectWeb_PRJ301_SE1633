@@ -26,7 +26,7 @@
                                     <div class="img-container mt-5 w-100 d-flex justify-content-center">
                                         <img src="asset/img/login/girl-with-red-hat-Z6SXt1v5tP8-unsplash.jpg" class="img-fluid">                                                                       
                                     </div>
-                                    <h6 class="text-center mt-2 mb-4 userName" style="color: white;">dungssj12</h6>
+                                    <h6 class="text-center mt-2 mb-4 userName" style="color: white;">${u.getUserName()}</h6>
                                     <ul class="p-0">
                                         <li><a href="AccountInformation.jsp">Account</a></li>
                                         <li><a href="HistoryOrder.jsp">History</a></li>
@@ -35,24 +35,24 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-9 content-container py-4 px-5">
-                                        <h2 class="my-3">Change Password</h2>
-                                        <div class="row" >
-                                            <form action="">
-                                                <div class="col-md-8 my-2">
-                                                    <label for="oldPass">Old Password</label>
-                                                    <input type="password" name="oldPass" id="oldPass" value="" class="form-control">
-                                                </div>
-                                                <div class="col-md-8 my-2">
-                                                    <label for="newPass">New Password</label>
-                                                    <input type="password" name="newPass" id="newPass" value="" class="form-control">
-                                                </div>
-                                                <div class="col-md-8 my-2">
-                                                    <label for="oldPass">Re-enter New Password</label>
-                                                    <input type="password" name="rePass" id="rePass" value="" class="form-control">
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <input type="button" value="Save new password" class="btn btn-success my-2">
+                                    <h2 class="my-3">Change Password</h2>
+                                    <div class="row" >
+                                        <form action="ChangePassword" method="post">
+                                            <div class="col-md-8 my-2">
+                                                <label for="oldPass">Old Password</label>
+                                                <input type="password" name="oldPass" id="oldPass" class="form-control">
+                                            </div>
+                                            <div class="col-md-8 my-2">
+                                                <label for="newPass">New Password</label>
+                                                <input type="password" name="newPass" id="newPass" class="form-control">
+                                            </div>
+                                            <div class="col-md-8 my-2">
+                                                <label for="oldPass">Re-enter New Password</label>
+                                                <input type="password" name="rePass" id="rePass" class="form-control">
+                                            </div>
+                                            <input type="submit" value="Save new password" class="btn btn-success my-2">
+                                        </form>
+                                    </div>
                                 </div>
                           </div>
                     </div>

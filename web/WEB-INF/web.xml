@@ -9,8 +9,20 @@
         <servlet-class>controller.AccountSettingServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ListPorductServlet</servlet-name>
-        <servlet-class>controller.ListPorductServlet</servlet-class>
+        <servlet-name>UpdateInformationServlet</servlet-name>
+        <servlet-class>controller.UpdateInformationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignUpServlet</servlet-name>
+        <servlet-class>controller.SignUpServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AfterAccountSettingServlet</servlet-name>
+        <servlet-class>controller.AfterAccountSettingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <servlet-class>controller.ChangePasswordServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -21,8 +33,20 @@
         <url-pattern>/Account</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ListPorductServlet</servlet-name>
-        <url-pattern>/ListPorductServlet</url-pattern>
+        <servlet-name>UpdateInformationServlet</servlet-name>
+        <url-pattern>/UpdateInformation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignUpServlet</servlet-name>
+        <url-pattern>/SignUp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AfterAccountSettingServlet</servlet-name>
+        <url-pattern>/AfterAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <url-pattern>/ChangePassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
