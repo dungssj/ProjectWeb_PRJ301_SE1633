@@ -1,1 +1,19 @@
+<<<<<<< HEAD
 /dist/
+=======
+# Created by https://www.toptal.com/developers/gitignore/api/netbeans
+# Edit at https://www.toptal.com/developers/gitignore?templates=netbeans
+
+### NetBeans ###
+**/nbproject/private/*
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+src/java/connect/DBContext.java
+
+# End of https://www.toptal.com/developers/gitignore/api/netbeans
+>>>>>>> 21745cf647f4c92968c1ccca60edfcb431da90ba

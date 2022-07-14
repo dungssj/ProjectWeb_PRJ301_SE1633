@@ -5,21 +5,19 @@
 
 package controller;
 
-import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import model.User;
 
 /**
  *
  * @author Dung
  */
-public class LoginServlet extends HttpServlet {
+public class AccountSettingServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,10 +34,10 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");  
+            out.println("<title>Servlet AccountSettingServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet AccountSettingServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -56,8 +54,14 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
-    } 
+        if(request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("Login.jsp");
+            return;
+        }
+        User u =(User) request.getSession().getAttribute("user");
+        request.setAttribute("user", u);
+        request.getRequestDispatcher("AccountInformation.jsp").forward(request, response);
+   } 
 
     /** 
      * Handles the HTTP <code>POST</code> method.
@@ -69,21 +73,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        UserDAO userDao = new UserDAO();
-        // Kiểm tra trên db nếu có thì sẽ chuyển sang trang chủ
-        if(userDao.checkAccount(username, password)) {
-            User u = userDao.getAccount(username);
-            HttpSession session = request.getSession();
-            String name = u.getUserName();
-            session.setAttribute("user", u);
-            request.getRequestDispatcher("Welcome.jsp").forward(request, response);
-        } else {
-            // Nếu không có thì quay về trang sign in và hiện ra thông báo 
-            request.setAttribute("msg", "Username or password is incorrect");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /** 

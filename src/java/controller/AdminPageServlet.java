@@ -5,7 +5,7 @@
 
 package controller;
 
-import dao.UserDAO;
+import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,13 +13,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.User;
+import java.util.ArrayList;
+import model.Product;
 
 /**
  *
- * @author Dung
+ * @author Admin
  */
-public class LoginServlet extends HttpServlet {
+public class AdminPageServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,17 +32,18 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+                HttpSession session = request.getSession();
+        PrintWriter out = response.getWriter();
+        try {
+            ProductDAO pro = new ProductDAO();          
+            ArrayList<Product> listAll = pro.getNewProduct();
+            request.setAttribute("list", listAll);
+            request.getRequestDispatcher("LandingPageAdmin.jsp").forward(request, response);
+            if(request.getParameter("admin")!=null){
+                
+            }
+        } catch (NumberFormatException e) {
+            out.print("Error :" + e.getMessage());
         }
     } 
 
@@ -69,21 +71,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        UserDAO userDao = new UserDAO();
-        // Kiểm tra trên db nếu có thì sẽ chuyển sang trang chủ
-        if(userDao.checkAccount(username, password)) {
-            User u = userDao.getAccount(username);
-            HttpSession session = request.getSession();
-            String name = u.getUserName();
-            session.setAttribute("user", u);
-            request.getRequestDispatcher("Welcome.jsp").forward(request, response);
-        } else {
-            // Nếu không có thì quay về trang sign in và hiện ra thông báo 
-            request.setAttribute("msg", "Username or password is incorrect");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /** 

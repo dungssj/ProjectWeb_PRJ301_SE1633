@@ -5,16 +5,76 @@
         <servlet-class>controller.LoginServlet</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>productServlet</servlet-name>
         <servlet-class>controller.productServlet</servlet-class>
+=======
+        <servlet-name>AccountSettingServlet</servlet-name>
+        <servlet-class>controller.AccountSettingServlet</servlet-class>
+    </servlet>
+    <servlet>
+<<<<<<< HEAD
+        <servlet-name>LandingPageServlet</servlet-name>
+        <servlet-class>controller.LandingPageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminPageServlet</servlet-name>
+        <servlet-class>controller.AdminPageServlet</servlet-class>
+=======
+        <servlet-name>UpdateInformationServlet</servlet-name>
+        <servlet-class>controller.UpdateInformationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignUpServlet</servlet-name>
+        <servlet-class>controller.SignUpServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AfterAccountSettingServlet</servlet-name>
+        <servlet-class>controller.AfterAccountSettingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <servlet-class>controller.ChangePasswordServlet</servlet-class>
+>>>>>>> dceebec5a03f388443f664a29b0cbe55aea9f02e
+>>>>>>> 21745cf647f4c92968c1ccca60edfcb431da90ba
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>productServlet</servlet-name>
         <url-pattern>/productServlet</url-pattern>
+=======
+        <servlet-name>AccountSettingServlet</servlet-name>
+        <url-pattern>/Account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+<<<<<<< HEAD
+        <servlet-name>LandingPageServlet</servlet-name>
+        <url-pattern>/landingpage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminPageServlet</servlet-name>
+        <url-pattern>/AdminPageServlet</url-pattern>
+=======
+        <servlet-name>UpdateInformationServlet</servlet-name>
+        <url-pattern>/UpdateInformation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignUpServlet</servlet-name>
+        <url-pattern>/SignUp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AfterAccountSettingServlet</servlet-name>
+        <url-pattern>/AfterAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePasswordServlet</servlet-name>
+        <url-pattern>/ChangePassword</url-pattern>
+>>>>>>> dceebec5a03f388443f664a29b0cbe55aea9f02e
+>>>>>>> 21745cf647f4c92968c1ccca60edfcb431da90ba
     </servlet-mapping>
     <session-config>
         <session-timeout>

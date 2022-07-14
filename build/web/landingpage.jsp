@@ -1,40 +1,63 @@
 <%-- 
-    Document   : landingpage
-    Created on : Jun 17, 2022, 11:12:34 AM
+    Document   : LandingPage
+    Created on : Jul 12, 2022, 1:49:04 PM
     Author     : Admin
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList" %>
+<%@page import="model.Product" %>
 <!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="asset/style/landingpage/LandingPage.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<head>
-    <link rel="stylesheet" type="text/css" href="asset/style/landingpage/Group10-2.css">
-    <!-- Bootstrap  -->
-    <link rel="stylesheet" type="text/css" href="asset/style/landingpage/bootstrap.css">
-    <!-- Theme Style -->
-    <link rel="stylesheet" type="text/css" href="asset/style/landingpage/style.css">
-    <link rel="stylesheet" type="text/css" href="asset/style/landingpage/responsive.css">
-    <!--Begin Header-->
+        <!--Begin Header-->
+
+        <!--Begin Logo-->
     <div class="menu">
+        <div id="logo" class="logo float-left">
+            <a href="index.html" title="logo">
+                <img src="asset/img/landingpage/logo.png" alt="image" width="107" height="24" data-retina=""C:\Users\Admin\Downloads\modaz-minimalist-ecommerce-html-template-2022-02-21-23-53-38-utc\modaz-package\modaz\images\logo@2x.png""
+                     data-width="107" data-height="24">
+            </a>
+        </div>
+        <!--End Logo-->
         <ul class="nav">
-            <li class="navbar_link"><a href="#">Home</a></li>
-            <li class="navbar_link"><a href="#">Brands</a></li>
-            <li class="navbar_link"><a href="#">Teams</a></li>
-            <li class="navbar_link"><a href="#">About us</a></li>
-            <li class="navbar_link"><a href="#">Contact us</a></li>
-            <li class="navbar_link"><a href="#">FAQs</a></li>
-            <li class="navbar_link"><a href="#">Login</a></li>
+            <li class="navbar_link"><a></a></li>
+            <li class="navbar_link"><a></a></li>
+            <li class="navbar_link"><a></a></li>
+            <li class="navbar_link"><a></a></li>
+            <li class="navbar_link"><a></a></li>
+            <li class="navbar_link"><a href="#">HOME</a></li>
+            <li class="navbar_link"><a href="#">SHOP</a></li>
+            <li class="navbar_link"><a href="#">ABOUT US</a></li>
+            <li class="navbar_link"><a href="#">CONTACT US</a></li>
+            <li class="navbar_link"><a></a></li>
+            <li class="navbar_link"><a href="#"><i class="glyphicon glyphicon-shopping-cart cart-icon"></i><span
+                        class="badge"></span></a></li>
+            <li class="navbar_link"><a href="#">
+                    <div class="box">
+                        <div class="container-1">
+                            <span class="icon"><i class="glyphicon glyphicon-search"></i></span>
+                        </div>
+                    </div>
+                </a></li>
+            <li class="navbar_link"><a href="#" class="nav-dropdown-hover"><i class="glyphicon glyphicon-user"></i></a></li>
         </ul>
     </div>
     <div class="background">
-        <img src="asset/img/landingpage_img/domenico-loia-hGV2TfOh0ns-unsplash.jpg" alt="photo 1">
+        <img src="asset/img/landingpage/domenico-loia-hGV2TfOh0ns-unsplash.jpg" alt="photo 1">
         <div class="slogan">
             <span><strong>Quality of your life</strong></span>
             <br><br>
             <p>Different - Loyal - Determined</p>
         </div>
-
     </div>
+
+    <!--End Header-->
 </head>
 
 <body>
@@ -42,156 +65,71 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="title-section margin-bottom-52">
+                    <div class="title-section">
                         <h2 class="title">
                             New Product
+                            <h3 class="title_hr"></h3>
                         </h2>
                     </div>
+                    <div class="space"></div>
                     <div class="product-content product-fourcolumn clearfix">
-                        <ul class="product style2 clearfix">
-                            <li class="product-item">
-                                <div class="product-thumb clearfix">
-                                    <a href="#" class="product-thumb">
-                                        <img src="asset/img/landingpage_img/13.jpg" alt="image">
-                                    </a>
-                                    <span class="new"></span>
-                                </div>
-                                <div class="product-info text-center clearfix">
-                                    <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                    <div class="price">
-                                        <ins>
-                                            <span class="amount"></span>
-                                        </ins>
+                        <ul class="product clearfix">
+                            <c:forEach items="${list}" var="item"> 
+                                <li class="col-md-3" id="one_space">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="${item.getImage()}"
+                                                 alt="image" width="100%" height="214px">
+                                        </a>
+                                        <span class="new"></span>
                                     </div>
-                                    <ul class="flat-color-list width-14">
-                                        <li>
-                                            <a href="#" class="red"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="blue"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="black"></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="add-to-cart text-center">
-                                    <a href="#">ADD TO CART</a>
-                                </div>
-                                <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                            </li>
-
-                            <li class="product-item">
-                                <div class="product-thumb clearfix">
-                                    <a href="#" class="product-thumb">
-                                        <img src="asset/img/landingpage_img/13.jpg" alt="image">
-                                    </a>
-                                    <span class="new"></span>
-                                </div>
-                                <div class="product-info clearfix">
-                                    <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                    <div class="price">
-                                        <ins>
-                                            <span class="amount"></span>
-                                        </ins>
-                                    </div>
-                                    <ul class="flat-color-list width-14">
-                                        <li>
-                                            <a href="#" class="red"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="blue"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="black"></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="add-to-cart text-center">
-                                    <a href="#">ADD TO CART</a>
-                                </div>
-                                <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                            </li>
-                            <li class="product-item">
-                                <div class="product-thumb clearfix">
-                                    <a href="#" class="product-thumb">
-                                        <img src="asset/img/landingpage_img/13.jpg" alt="image">
-                                    </a>
-                                    <span class="new sale"></span>
-                                </div>
-                                <div class="product-info clearfix">
-                                    <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                    <div class="price">
-                                        <del>
+                                    <div class="product-info text-center clearfix">
+                                        <span class="product-title">${item.getProductName()}</span>
+                                        <div class="price">
+                                            <del>
                                             <span class="regular"></span>
-                                        </del>
-                                        <ins>
-                                            <span class="amount"></span>
-                                        </ins>
-                                        <ul class="flat-color-list width-14">
-                                            <li>
-                                                <a href="#" class="red"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="blue"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="black"></a>
-                                            </li>
-                                        </ul>
+                                        </del> 
+                                            <ins>
+                                                <span class="amount">${item.getPrice()}</span>
+                                            </ins>
+                                        </div>
+                                        <div class="color">
+                                            <span class="red"></span>  
+                                            <span class="blue"></span> 
+                                            <span class="green"></span> 
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="add-to-cart text-center">
-                                    <a href="#">ADD TO CART</a>
-                                </div>
-                                <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                            </li>
-                            <li class="product-item">
-                                <div class="product-thumb clearfix">
-                                    <a href="#" class="product-thumb">
-                                        <img src="asset/img/landingpage_img/13.jpg" alt="image">
-                                    </a>
-                                </div>
-                                <div class="product-info clearfix">
-                                    <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                    <div class="price">
-                                        <ins>
-                                            <span class="amount"></span>
-                                        </ins>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
                                     </div>
-                                    <ul class="flat-color-list width-14">
-                                        <li>
-                                            <a href="#" class="red"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="blue"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="black"></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="add-to-cart text-center">
-                                    <a href="#">ADD TO CART</a>
-                                </div>
-                                <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                            </li>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>
-            </div><!-- /.row -->
-        </div><!-- /.container -->
+            </div>  
+        </div>  
     </section>
+
     <section class="flat-row row-product-new">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <div class="title-section">
+                        <h2 class="title">
+                            Best Seller
+                            <h3 class="title_hr"></h3>
+                        </h2>
+                    </div>
+                    <div class="space"></div>
                     <div class="product-content product-fourcolumn clearfix">
-                        <ul class="product style2 clearfix">
-                            <li class="product-item">
+                        <ul class="product clearfix">
+                            <li class="col-md-3" id="one_space">
                                 <div class="product-thumb clearfix">
                                     <a href="#" class="product-thumb">
-                                        <img src="asset/img/landingpage_img/13.jpg" alt="image">
+                                        <img src="http://1.bp.blogspot.com/-fBrnrR-0LGY/UJf3XkiK2OI/AAAAAAAAAF8/E8ZmEIH2zLY/s1600/Computer.jpg"
+                                             alt="image" width="100%" height="214px">
                                     </a>
                                     <span class="new"></span>
                                 </div>
@@ -202,17 +140,11 @@
                                             <span class="amount"></span>
                                         </ins>
                                     </div>
-                                    <ul class="flat-color-list width-14">
-                                        <li>
-                                            <a href="#" class="red"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="blue"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="black"></a>
-                                        </li>
-                                    </ul>
+                                    <div class="color">
+                                        <span class="red"></span>  
+                                        <span class="blue"></span> 
+                                        <span class="green"></span> 
+                                    </div>
                                 </div>
                                 <div class="add-to-cart text-center">
                                     <a href="#">ADD TO CART</a>
@@ -220,45 +152,40 @@
                                 <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
                             </li>
 
-                            <li class="product-item">
+                            <li class="col-md-3" id="one_space">
                                 <div class="product-thumb clearfix">
                                     <a href="#" class="product-thumb">
-                                        <img src="asset/img/landingpage_img/13.jpg" alt="image">
+                                        <img src="https://www.hts-tx.com/images-content/dell-workstation.jpg"
+                                             alt="image" width="100%" height="214px">
                                     </a>
                                     <span class="new"></span>
                                 </div>
-                                <div class="product-info clearfix">
+                                <div class="product-info clearfix text-center">
                                     <span class="product-title">Cotton White Underweaer Block Out Edition</span>
                                     <div class="price">
                                         <ins>
                                             <span class="amount"></span>
                                         </ins>
                                     </div>
-                                    <ul class="flat-color-list width-14">
-                                        <li>
-                                            <a href="#" class="red"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="blue"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="black"></a>
-                                        </li>
-                                    </ul>
+                                    <div class="color">
+                                        <span class="red"></span>  
+                                        <span class="blue"></span> 
+                                        <span class="green"></span> 
+                                    </div>
                                 </div>
                                 <div class="add-to-cart text-center">
                                     <a href="#">ADD TO CART</a>
                                 </div>
                                 <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
                             </li>
-                            <li class="product-item">
+                            <li class="col-md-3" id="one_space">
                                 <div class="product-thumb clearfix">
                                     <a href="#" class="product-thumb">
-                                        <img src="asset/img/landingpage_img/13.jpg" alt="image">
+                                        <img src="https://tse3.mm.bing.net/th?id=OIP.tLRQGPzRxrr6o0hCSngxKwHaGH&pid=Api&P=0&w=216&h=179" alt="image" width="100%" height="214px">
                                     </a>
                                     <span class="new sale"></span>
                                 </div>
-                                <div class="product-info clearfix">
+                                <div class="product-info clearfix text-center">
                                     <span class="product-title">Cotton White Underweaer Block Out Edition</span>
                                     <div class="price">
                                         <del>
@@ -267,17 +194,12 @@
                                         <ins>
                                             <span class="amount"></span>
                                         </ins>
-                                        <ul class="flat-color-list width-14">
-                                            <li>
-                                                <a href="#" class="red"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="blue"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="black"></a>
-                                            </li>
-                                        </ul>
+
+                                    </div>
+                                    <div class="color">
+                                        <span class="red"></span>  
+                                        <span class="blue"></span> 
+                                        <span class="green"></span> 
                                     </div>
                                 </div>
                                 <div class="add-to-cart text-center">
@@ -285,30 +207,24 @@
                                 </div>
                                 <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
                             </li>
-                            <li class="product-item">
+                            <li class="col-md-3" id="one_space">
                                 <div class="product-thumb clearfix">
                                     <a href="#" class="product-thumb">
-                                        <img src="asset/img/landingpage_img/13.jpg" alt="image">
+                                        <img src="https://tse2.mm.bing.net/th?id=OIP.t32c1k9qYl_z8EFvgdZAigHaHa&pid=Api&P=0&w=173&h=173" alt="image" width="100%" height="214px">
                                     </a>
                                 </div>
-                                <div class="product-info clearfix">
+                                <div class="product-info clearfix text-center">
                                     <span class="product-title">Cotton White Underweaer Block Out Edition</span>
                                     <div class="price">
                                         <ins>
                                             <span class="amount"></span>
                                         </ins>
                                     </div>
-                                    <ul class="flat-color-list width-14">
-                                        <li>
-                                            <a href="#" class="red"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="blue"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="black"></a>
-                                        </li>
-                                    </ul>
+                                    <div class="color">
+                                        <span class="red"></span>  
+                                        <span class="blue"></span> 
+                                        <span class="green"></span> 
+                                    </div>                                
                                 </div>
                                 <div class="add-to-cart text-center">
                                     <a href="#">ADD TO CART</a>
@@ -318,8 +234,8 @@
                         </ul>
                     </div>
                 </div>
-            </div><!-- /.row -->
-        </div><!-- /.container -->
+            </div>  
+        </div> 
     </section>
 </body>
 <!-- Begin: Footer -->
@@ -327,14 +243,14 @@
     <div class="container py-4">
         <div class="row gy-4 gx-5">
             <div class="col-lg-4 col-md-6">
-                <h5 class="h1 text-white">Group 10</h5>
+                <h5 class="h1 text-black">Group 10</h5>
                 <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt.</p>
                 <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved. <a class="text-primary"
-                        href="#">Bootstrapious.com</a></p>
+                                                                                            href="#">Bootstrapious.com</a></p>
             </div>
             <div class="col-lg-2 col-md-6">
-                <h5 class="text-white mb-3">Quick links</h5>
+                <h5 class="text-black mb-3">Quick links</h5>
                 <ul class="list-unstyled text-muted">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
@@ -343,7 +259,7 @@
                 </ul>
             </div>
             <div class="col-lg-2 col-md-6">
-                <h5 class="text-white mb-3">Quick links</h5>
+                <h5 class="text-black mb-3">Quick links</h5>
                 <ul class="list-unstyled text-muted">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
@@ -352,13 +268,13 @@
                 </ul>
             </div>
             <div class="col-lg-4 col-md-6">
-                <h5 class="text-white mb-3">Newsletter</h5>
+                <h5 class="text-black mb-3">Newsletter</h5>
                 <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     tempor incididunt.</p>
                 <form action="#">
                     <div class="input-group mb-3">
                         <input class="form-control" type="text" placeholder="Recipient's username"
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                               aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn btn-primary" id="button-addon2" type="button"><i
                                 class="fas fa-paper-plane"></i></button>
                     </div>

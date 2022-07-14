@@ -13,7 +13,8 @@
         <link rel="stylesheet" href="asset/style/landingpage/LandingPage.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <!--Begin Header-->
 
         <!--Begin Logo-->
@@ -37,7 +38,7 @@
             <li class="navbar_link"><a href="#">CONTACT US</a></li>
             <li class="navbar_link"><a></a></li>
             <li class="navbar_link"><a href="#"><i class="glyphicon glyphicon-shopping-cart cart-icon"></i><span
-                        class="badge"></span></a></li>
+                        class="badge">4</span></a></li>
             <li class="navbar_link"><a href="#">
                     <div class="box">
                         <div class="container-1">
@@ -45,7 +46,7 @@
                         </div>
                     </div>
                 </a></li>
-            <li class="navbar_link"><a href="#" class="nav-dropdown-hover"><i class="glyphicon glyphicon-user"></i></a></li>
+                <li class="navbar_link"><a href="fuctionOfAdmin.jsp" class="nav-dropdown-hover" id="admin"><i class='fas fa-crown'></i></a></li>
         </ul>
     </div>
     <div class="background">
