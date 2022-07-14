@@ -173,6 +173,21 @@ public class UserDAO {
         }
     }
     
+    public void updatePassword(String newPassword, User u) {
+        String sql = "update dbo.[User]\n"
+                + "set [Password] = ?\n"
+                + "where [UserID] = ?";
+         try {
+            // tạo khay chứa câu lệnh 
+            PreparedStatement pre = connection.prepareStatement(sql);
+            pre.setString(1, newPassword);
+            pre.setInt(2, u.getUserID());
+            pre.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Update password: " + e);
+        }
+    }
+    
     public static void main(String[] args) {
         UserDAO u = new UserDAO();
         System.out.println(""+u);

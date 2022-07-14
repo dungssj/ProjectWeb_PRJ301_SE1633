@@ -5,12 +5,14 @@
 
 package controller;
 
+import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.User;
 
 /**
  *
@@ -66,7 +68,21 @@ public class ChangePasswordServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        // xu li va kiem tra password bang js luon
+        String oldPassword = request.getParameter("oldPass");
+        String newPass = request.getParameter("newPass");
+        String rePass = request.getParameter("rePass");
+        User u = (User) request.getSession().getAttribute("user");
+        // Kiem tra xem neu password cu khong trung khop nhau
+        if(!oldPassword.equals(u.getPassword())) {
+            request.setAttribute("msg", "Wrong old password");
+            request.getRequestDispatcher("ChangePassword.jsp").forward(request, response);
+            return;
+        }
+        UserDAO userDao = new UserDAO();
+        userDao.updatePassword(newPass, u);
+        request.setAttribute("msg", "Change password successfully");
+        request.getRequestDispatcher("Security.jsp").forward(request, response);
     }
 
     /** 

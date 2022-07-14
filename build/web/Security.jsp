@@ -35,24 +35,24 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-9 content-container py-4 px-5">
-                                        <h2 class="my-3">Change Password</h2>
-                                        <div class="row" >
-                                            <form action="">
-                                                <div class="col-md-8 my-2">
-                                                    <label for="oldPass">Old Password</label>
-                                                    <input type="password" name="oldPass" id="oldPass" value="" class="form-control">
-                                                </div>
-                                                <div class="col-md-8 my-2">
-                                                    <label for="newPass">New Password</label>
-                                                    <input type="password" name="newPass" id="newPass" value="" class="form-control">
-                                                </div>
-                                                <div class="col-md-8 my-2">
-                                                    <label for="oldPass">Re-enter New Password</label>
-                                                    <input type="password" name="rePass" id="rePass" value="" class="form-control">
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <input type="button" value="Save new password" class="btn btn-success my-2">
+                                    <h2 class="my-3">Change Password</h2>
+                                    <div class="row" >
+                                        <form action="ChangePassword" method="post">
+                                            <div class="col-md-8 my-2">
+                                                <label for="oldPass">Old Password</label>
+                                                <input type="password" name="oldPass" id="oldPass" class="form-control">
+                                            </div>
+                                            <div class="col-md-8 my-2">
+                                                <label for="newPass">New Password</label>
+                                                <input type="password" name="newPass" id="newPass" class="form-control">
+                                            </div>
+                                            <div class="col-md-8 my-2">
+                                                <label for="oldPass">Re-enter New Password</label>
+                                                <input type="password" name="rePass" id="rePass" class="form-control">
+                                            </div>
+                                            <input type="submit" value="Save new password" class="btn btn-success my-2">
+                                        </form>
+                                    </div>
                                 </div>
                           </div>
                     </div>
