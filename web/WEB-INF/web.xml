@@ -8,6 +8,14 @@
         <servlet-name>AccountSettingServlet</servlet-name>
         <servlet-class>controller.AccountSettingServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LandingPageServlet</servlet-name>
+        <servlet-class>controller.LandingPageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminPageServlet</servlet-name>
+        <servlet-class>controller.AdminPageServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>AccountSettingServlet</servlet-name>
         <url-pattern>/Account</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LandingPageServlet</servlet-name>
+        <url-pattern>/landingpage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminPageServlet</servlet-name>
+        <url-pattern>/AdminPageServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

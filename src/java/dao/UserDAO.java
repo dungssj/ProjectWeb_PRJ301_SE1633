@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import model.Product;
 import model.User;
 
 /**
@@ -99,4 +101,7 @@ public class UserDAO {
         UserDAO u = new UserDAO();
         System.out.println(""+u);
     }
+    
+    
+   
 }
