@@ -118,11 +118,11 @@ public class ProductDAO {
        ArrayList<Product> list = new ArrayList();
         String query = "select Product.productID, Product.productName, Product.amount, Product.price, Product.image ,Product.discount from Product\n"
                 + "ORDER BY productID \n"
-                + "OFFSET ? ROWS FETCH NEXT 8 ROWS ONLY";
+                + "OFFSET ? ROWS FETCH NEXT 12 ROWS ONLY";
         try {
          
             PreparedStatement stm=connection.prepareStatement(query);
-            stm.setInt(1, (index - 1) * 8);
+            stm.setInt(1, (index - 1) * 12);
             ResultSet rs= stm.executeQuery();
            while(rs.next()){
                 int productID=rs.getInt(1);
