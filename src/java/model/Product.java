@@ -9,8 +9,8 @@ package model;
  * @author Admin
  */
 public class Product {
-    private int ProductID;
-    private String ProductName;
+    private int productID;
+    private String productName;
     private int amount;
     private int price;
     private String image;
@@ -19,29 +19,30 @@ public class Product {
     public Product() {
     }
 
-    public Product(int ProductID, String ProductName, int amount, int price, String image, int discount) {
-        this.ProductID = ProductID;
-        this.ProductName = ProductName;
+    public Product(int productID, String productName, int amount, int price, String image, int discount) {
+        this.productID = productID;
+        this.productName = productName;
         this.amount = amount;
         this.price = price;
         this.image = image;
         this.discount = discount;
     }
 
+
     public int getProductID() {
-        return ProductID;
+        return productID;
     }
 
-    public void setProductID(int ProductID) {
-        this.ProductID = ProductID;
+    public void setProductID(int productID) {
+        this.productID = productID;
     }
 
     public String getProductName() {
-        return ProductName;
+        return productName;
     }
 
-    public void setProductName(String ProductName) {
-        this.ProductName = ProductName;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public int getAmount() {
@@ -75,6 +76,14 @@ public class Product {
     public void setDiscount(int discount) {
         this.discount = discount;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" + "productID=" + productID + ", productName=" + productName + ", amount=" + amount + ", price=" + price + ", image=" + image + ", discount=" + discount + '}';
+    }
+
+   
+
 
     
 }

@@ -137,13 +137,13 @@
 
                                         <ul class="pagination">
                                             <c:if test="${tag > 1}">
-                                            <li class="page-item"><a href="ListPorductServlet?index=${tag-1}" class="page-link"><<</a></li>
+                                            <li class="page-item"><a href="ListProductServlet?index=${tag-1}" class="page-link"><<</a></li>
                                             </c:if>
                                                 <c:forEach begin="${1}" end="${endP}" var="i">
-                                                <li class="page-item ${tag == i?"active":""}"><a href="ListPorductServlet?index=${i}" class="page-link">${i}</a></li>
+                                                <li class="page-item ${tag == i?"active":""}"><a href="ListProductServlet?index=${i}" class="page-link">${i}</a></li>
                                                 </c:forEach>
                                                 <c:if test="${tag < endP}">
-                                            <li class="page-item"><a href="ListPorductServlet?index=${tag+1}" class="page-link">>></a></li>
+                                            <li class="page-item"><a href="ListProductServlet?index=${tag+1}" class="page-link">>></a></li>
                                             </c:if>
                                         </ul>
                                     </div>
