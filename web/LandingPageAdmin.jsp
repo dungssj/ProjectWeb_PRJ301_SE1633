@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </a></li>
-                <li class="navbar_link"><a href="fuctionOfAdmin.jsp" class="nav-dropdown-hover" id="admin"><i class='fas fa-crown'></i></a></li>
+                <li class="navbar_link"><a href="FuncOfAdminServlet" class="nav-dropdown-hover" name="admin"><i class='fas fa-crown'></i></a></li>
         </ul>
     </div>
     <div class="background">
