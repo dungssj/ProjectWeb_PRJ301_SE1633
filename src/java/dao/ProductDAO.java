@@ -17,6 +17,9 @@ import model.Product;
  */
 public class ProductDAO {
         Connection connection;
+        PreparedStatement stm = null;//Thực thi các câu lệnh SQL
+    ResultSet rs = null;//Lưu trữ và xử lý dữ liệu
+
     DBContext db;
     
       public ProductDAO() {
@@ -34,16 +37,17 @@ public class ProductDAO {
         ArrayList<Product> list = new ArrayList<Product>();
         try {
             String sql="select Product.productID, Product.productName,Product.amount, Product.price, Product.image, Product.discount from Product";
+           
             PreparedStatement stm=connection.prepareStatement(sql);
             ResultSet rs= stm.executeQuery();
             while(rs.next()){
-                int id=rs.getInt(1);
-                String name=rs.getString(2);
+                int productID=rs.getInt(1);
+                String productName=rs.getString(2);
                 int amount=rs.getInt(3);
                 int price=rs.getInt(4);
                 String image=rs.getString(5);
                 int discount=rs.getInt(6);
-                list.add(new Product(id,name,amount,price,image,discount));
+                list.add(new Product(productID,productName,amount,price,image,discount));
             }
         } catch (Exception e) {
             System.out.println("Error getPro: "+e.getMessage());
@@ -96,4 +100,52 @@ public class ProductDAO {
             System.out.println("Delete fail: "+e.getMessage());
         }
     }
+    public int getTotalProduct() {
+        String query = "select count(*) from Product";
+        try {
+            
+          PreparedStatement stm=connection.prepareStatement(query);
+          ResultSet rs= stm.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
+    public ArrayList<Product> pagingProduct(int index) {
+       ArrayList<Product> list = new ArrayList();
+        String query = "select Product.productID, Product.productName, Product.amount, Product.price, Product.image ,Product.discount from Product\n"
+                + "ORDER BY productID \n"
+                + "OFFSET ? ROWS FETCH NEXT 8 ROWS ONLY";
+        try {
+         
+            PreparedStatement stm=connection.prepareStatement(query);
+            stm.setInt(1, (index - 1) * 8);
+            ResultSet rs= stm.executeQuery();
+           while(rs.next()){
+                int productID=rs.getInt(1);
+                String productName=rs.getString(2);
+                int amount=rs.getInt(3);
+                int price=rs.getInt(4);
+                String image=rs.getString(5);
+                int discount=rs.getInt(6);
+                list.add(new Product(productID,productName,amount,price,image,discount));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public static void main(String[] args) {
+        ProductDAO dao = new ProductDAO();
+        ArrayList<Product> list = dao.pagingProduct(1);
+        for (Product o : list) {
+            System.out.println(o);
+        }
+//        int count = dao.getTotalProduct();
+//            System.out.println(count);;
+    }
+
 }

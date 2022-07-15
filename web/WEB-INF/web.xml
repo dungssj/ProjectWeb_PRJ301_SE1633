@@ -32,6 +32,10 @@
         <servlet-name>AdminPageServlet</servlet-name>
         <servlet-class>controller.AdminPageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListProductServlet</servlet-name>
+        <servlet-class>controller.ListProductServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>AdminPageServlet</servlet-name>
         <url-pattern>/AdminPageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListProductServlet</servlet-name>
+        <url-pattern>/ListProductServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
