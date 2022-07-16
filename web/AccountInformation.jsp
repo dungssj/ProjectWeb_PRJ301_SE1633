@@ -24,9 +24,12 @@
                         <div class="d-flex align-items-start h-100 ">
                                 <div class="navigation col-md-3 h-100">
                                     <div class="img-container mt-5 w-100 d-flex justify-content-center">
-                                        <img src="asset/img/login/girl-with-red-hat-Z6SXt1v5tP8-unsplash.jpg" class="img-fluid">                                      
+                                        <img src="asset/img/login/girl-with-red-hat-Z6SXt1v5tP8-unsplash.jpg" alt="">
+                                        <div class="img-hover">
+                                            <a href="UploadAvatar.jsp"><img src="asset/img/Account/photo.png" alt=""></a>
+                                        </div>                                     
                                     </div>
-                                    <h6 class="text-center mt-2 mb-4 userName" style="color: white;">${u.getUserName()}</h6>
+                                    <h6 class="text-center mt-2 mb-4 userName" style="color: white;">${user.getUserName()}</h6>
                                     <ul class="p-0">
                                         <li><a href="AccountInformation.jsp">Account</a></li>
                                         <li><a href="HistoryOrder.jsp">History</a></li>
