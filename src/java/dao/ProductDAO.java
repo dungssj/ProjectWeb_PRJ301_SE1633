@@ -93,13 +93,14 @@ public class ProductDAO {
     
     public void deleteProductById(int id){
         try {
-            String delete="delete Product where productID='" + id + "'";
+            String delete="delete from Product where Product.productID='" + id + "'";
             PreparedStatement stm = connection.prepareStatement(delete);
             stm.execute(delete);
         } catch (Exception e) {
             System.out.println("Delete fail: "+e.getMessage());
         }
     }
+    
     public int getTotalProduct() {
         String query = "select count(*) from Product";
         try {

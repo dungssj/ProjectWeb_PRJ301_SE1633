@@ -44,6 +44,10 @@
         <servlet-name>EditAvatarServlet</servlet-name>
         <servlet-class>controller.EditAvatarServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditController</servlet-name>
+        <servlet-class>controller.EditController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>EditAvatarServlet</servlet-name>
         <url-pattern>/editAvatar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditController</servlet-name>
+        <url-pattern>/EditController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
