@@ -48,7 +48,7 @@
                                             <!--                                    i class="flaticon-shopping-bag"></i>-->
                                             <!--                                    <span class="count">0</span> -->
                                             <span class="text">
-                                                <span class="sub">Add New Product</span>
+                                                <span class="sub"><strong>Add New Product +</strong></span>
                                                  </span> 
                                         </a>
 
@@ -115,10 +115,10 @@
                                                         </div>
                                                         <div class="product__add-cart-s text-center">
                                                             <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                                Edit
+                                                                <a href="Edit?id=${item.getProductid()}&mode=edit">Edit</a>
                                                             </button>
                                                             <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                                Delete
+                                                                <a href="Edit?id=${item.getProductid()}&mode=delete">Delete</a>
                                                             </button>
 
                                                         </div>
