@@ -29,7 +29,7 @@
                                             <a href="UploadAvatar.jsp"><img src="asset/img/Account/photo.png" alt=""></a>
                                         </div>
                                     </div>
-                                    <h6 class="text-center mt-2 mb-4 userName" style="color: white;">${u.getUserName()}</h6>
+                                    <h6 class="text-center mt-2 mb-4 userName" style="color: white;">${user.getUserName()}</h6>
                                     <ul class="p-0">
                                         <li><a href="AccountSetting.jsp">Account</a></li>
                                         <li><a href="HistoryOrder.jsp">History</a></li>
@@ -39,13 +39,15 @@
                                 </div>
                                 <div class="col-md-9 content-container py-4 px-5 h-100">
                                         <h2>Change Your Avatar</h2>
-                                        <div class="input-img-container">
-                                            <div class="border-img-container">
-                                                <img id="file-upload" src="asset/img/girl-with-red-hat-Z6SXt1v5tP8-unsplash.jpg" alt="">
-                                            </div>
-                                            <input type="file" onchange="UploadAvatar(this)">
-                                        </div>  
-                                        <input type="submit" class="btn btn-success" value="Edit avatar">
+                                        <form action="editAvatar" method="post">
+                                            <div class="input-img-container">
+                                                <div class="border-img-container">
+                                                    <img id="file-upload" src="asset/img/girl-with-red-hat-Z6SXt1v5tP8-unsplash.jpg" alt="">
+                                                </div>
+                                                <input type="file" onchange="UploadAvatar(this)" name="avatar">
+                                            </div>  
+                                            <input type="submit" class="btn btn-success" value="Edit avatar">
+                                        </form>
                                 </div>
                           </div>
                     </div>
