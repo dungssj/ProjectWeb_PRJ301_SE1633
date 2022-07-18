@@ -36,7 +36,7 @@ public class ProductDAO {
       public ArrayList<Product> getAllProduct(){
         ArrayList<Product> list = new ArrayList<Product>();
         try {
-            String sql="select Product.productID, Product.productName,Product.amount, Product.price, Product.image, Product.discount from Product";
+            String sql="select Product.productID, Product.productName,Product.amount,Product.Description, Product.Price, Product.Image, Product.Discount from Product";
            
             PreparedStatement stm=connection.prepareStatement(sql);
             ResultSet rs= stm.executeQuery();
@@ -44,10 +44,11 @@ public class ProductDAO {
                 int productID=rs.getInt(1);
                 String productName=rs.getString(2);
                 int amount=rs.getInt(3);
-                int price=rs.getInt(4);
-                String image=rs.getString(5);
-                int discount=rs.getInt(6);
-                list.add(new Product(productID,productName,amount,price,image,discount));
+                String des=rs.getString(4);
+                int price=rs.getInt(5);
+                String image=rs.getString(6);
+                int discount=rs.getInt(7);
+                list.add(new Product(productID,productName,amount,des,price,image,discount));
             }
         } catch (Exception e) {
             System.out.println("Error getPro: "+e.getMessage());
@@ -58,23 +59,46 @@ public class ProductDAO {
           public ArrayList<Product> getNewProduct(){
         ArrayList<Product> list = new ArrayList<Product>();
         try {
-            String sql="select top 12 Product.productID, Product.productName,Product.amount, Product.price, Product.image, Product.discount from Product order by Product.DateAdd desc";
+            String sql="select top 12 Product.productID, Product.productName,Product.amount,Product.Description, Product.Price, Product.Image, Product.Discount from Product order by Product.DateAdd desc";
             PreparedStatement stm=connection.prepareStatement(sql);
             ResultSet rs= stm.executeQuery();
             while(rs.next()){
                 int id=rs.getInt(1);
                 String name=rs.getString(2);
                 int amount=rs.getInt(3);
-                int price=rs.getInt(4);
-                String image=rs.getString(5);
-                int discount=rs.getInt(6);
-                list.add(new Product(id,name,amount,price,image,discount));
+                String des=rs.getString(4);
+                int price=rs.getInt(5);
+                String image=rs.getString(6);
+                int discount=rs.getInt(7);
+                list.add(new Product(id,name,amount,des,price,image,discount));
             }
         } catch (Exception e) {
             System.out.println("Error getPro: "+e.getMessage());
         }
         return list;
     }  
+          
+          public ArrayList<Product> getBestSellerProduct(){
+        ArrayList<Product> list = new ArrayList<Product>();
+        try {
+            String sql="select top 4 Product.productID, Product.productName,Product.amount,Product.Description, Product.Price, Product.Image, Product.Discount from Product order by Product.SoldQuantity desc";
+            PreparedStatement stm=connection.prepareStatement(sql);
+            ResultSet rs= stm.executeQuery();
+            while(rs.next()){
+                int id=rs.getInt(1);
+                String name=rs.getString(2);
+                int amount=rs.getInt(3);
+                String des=rs.getString(4);
+                int price=rs.getInt(5);
+                String image=rs.getString(6);
+                int discount=rs.getInt(7);
+                list.add(new Product(id,name,amount,des,price,image,discount));
+            }
+        } catch (Exception e) {
+            System.out.println("Error getPro: "+e.getMessage());
+        }
+        return list;
+    }
       
     public void insertProduct(int id, String name, int price, String image){
         ArrayList<Product> list = new ArrayList<>();
@@ -101,6 +125,14 @@ public class ProductDAO {
         }
     }
     
+    public void updateProductById(int id){
+        try {
+            String update="";
+            
+        } catch (Exception e) {
+        }
+    }
+    
     public int getTotalProduct() {
         String query = "select count(*) from Product";
         try {
@@ -117,7 +149,32 @@ public class ProductDAO {
 
     public ArrayList<Product> pagingProduct(int index) {
        ArrayList<Product> list = new ArrayList();
-        String query = "select Product.productID, Product.productName, Product.amount, Product.price, Product.image ,Product.discount from Product\n"
+        String query = "select Product.productID, Product.productName, Product.amount, Product.Description, Product.price, Product.image ,Product.discount from Product\n"
+                + "ORDER BY productID \n"
+                + "OFFSET ? ROWS FETCH NEXT 8 ROWS ONLY";
+        try {
+         
+            PreparedStatement stm=connection.prepareStatement(query);
+            stm.setInt(1, (index - 1) * 8);
+            ResultSet rs= stm.executeQuery();
+           while(rs.next()){
+                int productID=rs.getInt(1);
+                String productName=rs.getString(2);
+                int amount=rs.getInt(3);
+                String des=rs.getString(4);
+                int price=rs.getInt(5);
+                String image=rs.getString(6);
+                int discount=rs.getInt(7);
+                list.add(new Product(productID,productName,amount,des,price,image,discount));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
+    public ArrayList<Product> pagingAdminPage(int index) {
+       ArrayList<Product> list = new ArrayList();
+        String query = "select Product.productID, Product.productName, Product.amount, Product.Description, Product.price, Product.image ,Product.discount from Product\n"
                 + "ORDER BY productID \n"
                 + "OFFSET ? ROWS FETCH NEXT 12 ROWS ONLY";
         try {
@@ -129,10 +186,11 @@ public class ProductDAO {
                 int productID=rs.getInt(1);
                 String productName=rs.getString(2);
                 int amount=rs.getInt(3);
-                int price=rs.getInt(4);
-                String image=rs.getString(5);
-                int discount=rs.getInt(6);
-                list.add(new Product(productID,productName,amount,price,image,discount));
+                String des=rs.getString(4);
+                int price=rs.getInt(5);
+                String image=rs.getString(6);
+                int discount=rs.getInt(7);
+                list.add(new Product(productID,productName,amount,des,price,image,discount));
             }
         } catch (Exception e) {
         }

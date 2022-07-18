@@ -40,6 +40,10 @@ public class LandingPageServlet extends HttpServlet {
             ArrayList<Product> listAll = pro.getNewProduct();
             request.setAttribute("list", listAll);
             request.getRequestDispatcher("LandingPage.jsp").forward(request, response);
+            
+            ArrayList<Product> bestseller = pro.getBestSellerProduct();
+            request.setAttribute("bestseller", bestseller);
+            request.getRequestDispatcher("LandingPage.jsp").forward(request, response);
         } catch (NumberFormatException e) {
             out.print("Error :" + e.getMessage());
             //test

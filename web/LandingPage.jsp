@@ -104,6 +104,9 @@
                                             <span class="blue"></span> 
                                             <span class="green"></span> 
                                         </div>
+                                        <div>
+                                            <span class="description">${item.getDescription()}</span>
+                                        </div>
                                     </div>
                                     <div class="add-to-cart text-center">
                                         <a href="#">ADD TO CART</a>
@@ -131,112 +134,40 @@
                     <div class="space"></div>
                     <div class="product-content product-fourcolumn clearfix">
                         <ul class="product clearfix">
-                            <li class="col-md-3" id="one_space">
-                                <div class="product-thumb clearfix">
-                                    <a href="#" class="product-thumb">
-                                        <img src="http://1.bp.blogspot.com/-fBrnrR-0LGY/UJf3XkiK2OI/AAAAAAAAAF8/E8ZmEIH2zLY/s1600/Computer.jpg"
-                                             alt="image" width="100%" height="214px">
-                                    </a>
-                                    <span class="new"></span>
-                                </div>
-                                <div class="product-info text-center clearfix">
-                                    <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                    <div class="price">
-                                        <ins>
-                                            <span class="amount"></span>
-                                        </ins>
+                            <c:forEach items="${bestseller}" var="item"> 
+                                <li class="col-md-3" id="one_space">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="${item.getImage()}"
+                                                 alt="image" width="100%" height="214px">
+                                        </a>
+                                        <span class="new"></span>
                                     </div>
-                                    <div class="color">
-                                        <span class="red"></span>  
-                                        <span class="blue"></span> 
-                                        <span class="green"></span> 
+                                    <div class="product-info text-center clearfix">
+                                        <span class="product-title">${item.getProductName()}</span>
+                                        <div class="price">
+                                            <del>
+                                                <span class="regular"></span>
+                                            </del> 
+                                            <ins>
+                                                <span class="amount">${item.getPrice()}</span>
+                                            </ins>
+                                        </div>
+                                        <div class="color">
+                                            <span class="red"></span>  
+                                            <span class="blue"></span> 
+                                            <span class="green"></span> 
+                                        </div>
+                                        <div>
+                                            <span class="description">${item.getDescription()}</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="add-to-cart text-center">
-                                    <a href="#">ADD TO CART</a>
-                                </div>
-                                <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                            </li>
-
-                            <li class="col-md-3" id="one_space">
-                                <div class="product-thumb clearfix">
-                                    <a href="#" class="product-thumb">
-                                        <img src="https://www.hts-tx.com/images-content/dell-workstation.jpg"
-                                             alt="image" width="100%" height="214px">
-                                    </a>
-                                    <span class="new"></span>
-                                </div>
-                                <div class="product-info clearfix text-center">
-                                    <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                    <div class="price">
-                                        <ins>
-                                            <span class="amount"></span>
-                                        </ins>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
                                     </div>
-                                    <div class="color">
-                                        <span class="red"></span>  
-                                        <span class="blue"></span> 
-                                        <span class="green"></span> 
-                                    </div>
-                                </div>
-                                <div class="add-to-cart text-center">
-                                    <a href="#">ADD TO CART</a>
-                                </div>
-                                <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                            </li>
-                            <li class="col-md-3" id="one_space">
-                                <div class="product-thumb clearfix">
-                                    <a href="#" class="product-thumb">
-                                        <img src="https://tse3.mm.bing.net/th?id=OIP.tLRQGPzRxrr6o0hCSngxKwHaGH&pid=Api&P=0&w=216&h=179" alt="image" width="100%" height="214px">
-                                    </a>
-                                    <span class="new sale"></span>
-                                </div>
-                                <div class="product-info clearfix text-center">
-                                    <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                    <div class="price">
-                                        <del>
-                                            <span class="regular"></span>
-                                        </del>
-                                        <ins>
-                                            <span class="amount"></span>
-                                        </ins>
-
-                                    </div>
-                                    <div class="color">
-                                        <span class="red"></span>  
-                                        <span class="blue"></span> 
-                                        <span class="green"></span> 
-                                    </div>
-                                </div>
-                                <div class="add-to-cart text-center">
-                                    <a href="#">ADD TO CART</a>
-                                </div>
-                                <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                            </li>
-                            <li class="col-md-3" id="one_space">
-                                <div class="product-thumb clearfix">
-                                    <a href="#" class="product-thumb">
-                                        <img src="https://tse2.mm.bing.net/th?id=OIP.t32c1k9qYl_z8EFvgdZAigHaHa&pid=Api&P=0&w=173&h=173" alt="image" width="100%" height="214px">
-                                    </a>
-                                </div>
-                                <div class="product-info clearfix text-center">
-                                    <span class="product-title">Cotton White Underweaer Block Out Edition</span>
-                                    <div class="price">
-                                        <ins>
-                                            <span class="amount"></span>
-                                        </ins>
-                                    </div>
-                                    <div class="color">
-                                        <span class="red"></span>  
-                                        <span class="blue"></span> 
-                                        <span class="green"></span> 
-                                    </div>                                
-                                </div>
-                                <div class="add-to-cart text-center">
-                                    <a href="#">ADD TO CART</a>
-                                </div>
-                                <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
-                            </li>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>

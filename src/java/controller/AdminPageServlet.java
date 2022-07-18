@@ -39,6 +39,10 @@ public class AdminPageServlet extends HttpServlet {
             ArrayList<Product> list = pro.getNewProduct();
             request.setAttribute("list", list);
             request.getRequestDispatcher("LandingPageAdmin.jsp").forward(request, response);
+            
+            ArrayList<Product> bestseller = pro.getBestSellerProduct();
+            request.setAttribute("bestseller", bestseller);
+            request.getRequestDispatcher("LandingPageAdmin.jsp").forward(request, response);
         } catch (NumberFormatException e) {
             out.print("Error :" + e.getMessage());
         }
