@@ -43,7 +43,7 @@ public class FuncOfAdminServlet extends HttpServlet {
         if(count % 12 != 0){
         endPage++;
         }
-        ArrayList<Product> list = dao.pagingProduct(index);
+        ArrayList<Product> list = dao.pagingAdminPage(index);
         request.setAttribute("listP", list);
         request.setAttribute("endP", endPage);
         request.setAttribute("tag", index);
