@@ -36,13 +36,11 @@ public class AdminPageServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             ProductDAO pro = new ProductDAO();          
-            ArrayList<Product> list = pro.getNewProduct();
-            request.setAttribute("list", list);
-            request.getRequestDispatcher("LandingPageAdmin.jsp").forward(request, response);
-            
+            ArrayList<Product> listAll = pro.getNewProduct();
             ArrayList<Product> bestseller = pro.getBestSellerProduct();
+            request.setAttribute("list", listAll);
             request.setAttribute("bestseller", bestseller);
-            request.getRequestDispatcher("LandingPageAdmin.jsp").forward(request, response);
+            request.getRequestDispatcher("LandingPageAdmin.jsp").forward(request, response); 
         } catch (NumberFormatException e) {
             out.print("Error :" + e.getMessage());
         }

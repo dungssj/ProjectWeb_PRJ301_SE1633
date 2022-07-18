@@ -105,7 +105,7 @@
                                             <span class="green"></span> 
                                         </div>
                                         <div>
-                                            <span class="description">${item.getDescription()}</span>
+                                            <span class="description"><strong>${item.getDescription()}</strong></span>
                                         </div>
                                     </div>
                                     <div class="add-to-cart text-center">
@@ -159,7 +159,7 @@
                                             <span class="green"></span> 
                                         </div>
                                         <div>
-                                            <span class="description">${item.getDescription()}</span>
+                                            <span class="description"><strong>${item.getDescription()}</strong></span>
                                         </div>
                                     </div>
                                     <div class="add-to-cart text-center">
