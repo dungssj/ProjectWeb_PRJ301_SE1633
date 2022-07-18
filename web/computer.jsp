@@ -4,7 +4,7 @@
     Author     : longc
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html class="no-js" lang="zxx">
@@ -114,12 +114,15 @@
                                                                 <span>${o.getPrice()}</span>
                                                             </div>
                                                         </div>
+                                                            <form action="/Projectweb_PRJ301_SE1633/AddToCartServlet/add-to-cart" method="POST">
                                                         <div class="product__add-cart-s text-center">
-                                                            <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                            <input name="ProductId" type="hidden" value="${o.getProductID()}"/>
+                                                            <button  class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
                                                                 Add to Cart
                                                             </button>
 
                                                         </div>
+                                                            </form>
                                                     </div>
 
                                                 </div>
