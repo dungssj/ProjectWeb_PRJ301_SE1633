@@ -213,8 +213,9 @@ public class ProductDAO {
     try {
            
             PreparedStatement stm = connection.prepareStatement(query);
+            stm.setInt(1, ProductId);
             ResultSet rs = stm.executeQuery();
-            while (rs.next()) {
+            if (rs.next()) {
                 int productID = rs.getInt(1);
                 String productName = rs.getString(2);
                 int amount = rs.getInt(3);
