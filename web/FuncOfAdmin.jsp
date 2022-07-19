@@ -4,7 +4,7 @@
     Author     : longc
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html class="no-js" lang="zxx">
@@ -22,7 +22,6 @@
         <link rel="stylesheet" href="asset/style/shop/font-awesome-pro.css">
         <link rel="stylesheet" href="asset/style/shop/default.css">
         <link rel="stylesheet" href="asset/style/shop/shop.css">
-
     </head>
     <body>
 
@@ -49,8 +48,8 @@
                                             <!--                                    i class="flaticon-shopping-bag"></i>-->
                                             <!--                                    <span class="count">0</span> -->
                                             <span class="text">
-                                                <span class="sub">Your Cart:</span>
-                                                $00.00 </span> 
+                                                <span class="sub"><strong>Add New Product +</strong></span>
+                                                 </span> 
                                         </a>
 
                                     </div>
@@ -73,8 +72,8 @@
                             <div class="breadcrumb__wrapper">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                                        <li class="breadcrumb-item"><a href="index.html"></a>Admin Page</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Product Management</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -95,34 +94,34 @@
                                 <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
                                     <div class="tp-wrapper">
                                         <div class="row g-0">
-                                            <c:forEach items="${listP}" var="product">
+                                            <c:forEach items="${listP}" var="o">
                                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                                                     <div class="product__item product__item-d">
                                                         <div class="product__thumb fix">
                                                             <div class="product-image w-img">
 
                                                                 <a href=".html">
-                                                                    <img src=${product.getImage()} alt="product">
+                                                                    <img src=${o.getImage()} alt="product">
                                                                 </a>
                                                             </div>
 
                                                         </div>
                                                         <div class="product__content-3">
-                                                            <h6><a href="product-.html">${product.getProductName()}</a></h6>
+                                                            <h6><a href="product-.html">${o.getProductName()}</a></h6>
 
                                                             <div class="price mb-10">
-                                                                <span>${product.getPrice()}</span>
+                                                                <span>${o.getPrice()}</span>
                                                             </div>
                                                         </div>
-                                                            <form action="/Projectweb_PRJ301_SE1633/AddToCartServlet/add-to-cart" method="POST">
                                                         <div class="product__add-cart-s text-center">
-                                                            <input name="ProductId" type="hidden" value="${product.getProductID()}"/>
-                                                            <button  class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                                Add to Cart
+                                                            <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                                <a href="Edit?id=${item.getProductID()}&mode=edit">Edit</a>
+                                                            </button>
+                                                            <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                                <a href="Edit?id=${item.getProductID()}&mode=delete">Delete</a>
                                                             </button>
 
                                                         </div>
-                                                            </form>
                                                     </div>
 
                                                 </div>
@@ -140,13 +139,13 @@
 
                                         <ul class="pagination">
                                             <c:if test="${tag > 1}">
-                                            <li class="page-item"><a href="ListProductServlet?index=${tag-1}" class="page-link"><<</a></li>
+                                            <li class="page-item"><a href="FuncOfAdminServlet?index=${tag-1}" class="page-link"><<</a></li>
                                             </c:if>
                                                 <c:forEach begin="${1}" end="${endP}" var="i">
-                                                <li class="page-item ${tag == i?"active":""}"><a href="ListProductServlet?index=${i}" class="page-link">${i}</a></li>
+                                                <li class="page-item ${tag == i?"active":""}"><a href="FuncOfAdminServlet?index=${i}" class="page-link">${i}</a></li>
                                                 </c:forEach>
                                                 <c:if test="${tag < endP}">
-                                            <li class="page-item"><a href="ListProductServlet?index=${tag+1}" class="page-link">>></a></li>
+                                            <li class="page-item"><a href="FuncOfAdminServlet?index=${tag+1}" class="page-link">>></a></li>
                                             </c:if>
                                         </ul>
                                     </div>

@@ -209,7 +209,7 @@ public class ProductDAO {
 
 
     public Product getProductByID(int ProductId){
-    String query ="select * from Product where ProductId=?"; 
+    String query ="select Product.productID, Product.productName,Product.amount,Product.Description, Product.Price, Product.Image, Product.Discount from Product where ProductId=?"; 
     try {
            
             PreparedStatement stm = connection.prepareStatement(query);

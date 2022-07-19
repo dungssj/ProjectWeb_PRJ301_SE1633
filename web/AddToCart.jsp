@@ -45,6 +45,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-12">
+
                         <form action="#">
                            <div class="table-content table-responsive">
                               <table class="table">
@@ -58,9 +59,7 @@
                                           <th class="product-remove">Remove</th>
                                        </tr>
                                     </thead>
-                                    
-                                    <tbody>
-                                        <c:if test="${ cart !=null}">
+                                     <c:if test="${ cart != null}">   
                                             <%
                                             HashMap<Integer,ProductCart> cart =(HashMap<Integer, ProductCart>) request.getAttribute("cart");
                                             for (Map.Entry<Integer, ProductCart> entry : cart.entrySet()) {
@@ -69,6 +68,8 @@
                                                     
                                                 
                                             %>
+                                    <tbody>
+
                                  
                                        <tr>
                                            <td class="product-thumbnail"><a href="shop-details.html"><img src="${productCart.product.getImage()}" alt=""></a></td>
