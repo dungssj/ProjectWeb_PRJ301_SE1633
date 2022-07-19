@@ -9,6 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<c:if test="${user != null}">
 <html class="no-js" lang="zxx">
     <head>
         <meta charset="utf-8">
@@ -45,8 +46,7 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-12">
-
+                    <div class="col-12">${user}
                        
                             <div class="table-content table-responsive">
                                 <c:if test="${ cart != null}">
@@ -61,40 +61,28 @@
 <!--                                            <th class="product-remove">Remove</th>-->
                                         </tr>
                                     </thead>
-                                       
-                                        <%
-                                            HashMap<Integer, ProductCart> cart = (HashMap<Integer, ProductCart>) request.getAttribute("cart");
-                                            for (Map.Entry<Integer, ProductCart> entry : cart.entrySet()) {
-                                                Integer key = entry.getKey();
-                                                ProductCart productCart = entry.getValue();
-
-                                        %>
                                         
 
 
                                         
                                             <tr>
-                                                <td class="product-thumbnail"><a href="shop-details.html"><img src="<%= productCart.product.getImage()%>" alt=""></a></td>
-                                                <td class="product-name"><a href="shop-details.html"><%= productCart.product.getProductName()%></a></td>
-                                                <td class="product-price"><span class="price"><%= productCart.product.getPrice()%></span></td>
+                                                <td class="product-thumbnail"><a href="shop-details.html"><img src="" alt=""></a></td>
+                                                <td class="product-name"><a href="shop-details.html"></a></td>
+                                                <td class="product-price"><span class="price"></span></td>
                                             
                                                 <td class="product-quantity" >
                                                     <form action="/Projectweb_PRJ301_SE1633/AddToCartServlet/update-amount" method="POST">
-                                                    <div class="cart-plus-minus mb-2"><input type="text" name="amount" value="<%= productCart.amount%>"><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
-                                                    <input value="<%=  productCart.product.getProductID()%>" type="hidden" name="ProductId" >
+                                                    <div class="cart-plus-minus mb-2"><input type="text" name="amount" value=""><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
+                                                    <input value="" type="hidden" name="ProductId" >
                                                     <button class="btn btn-success" type="submit">Update cart</button>
                                                 </form>
                                                     </td>
                                                 <td class="product-subtotal"><span class="">$130.00</span></td>
 <!--                                                <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>-->
-                                            </tr>
-
-                                        
-                                        <%}%>
-
+                                            </tr>                                    
                                     </table>
                                 </c:if>
-                                <c:if test="${ cart == null}"> 
+                                <c:if test="${cart == null}"> 
 <!--                                    <div class="alert alert-warning" role="alert"
                                          Chưa có sản phẩm trong giỏ hàng-->
                                      </c:if>
@@ -169,4 +157,9 @@
 
 </body>
 </html>
+</c:if>
+
+<c:if test="${user == null}">
+    <form></form>
+</c:if>
 
