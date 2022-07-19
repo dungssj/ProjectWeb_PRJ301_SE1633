@@ -57,6 +57,33 @@ public class ProductDAO {
         }
         return list;
     }
+    
+    public Product getProductById(String productid) {
+        Product p = new Product();
+        String sql = "select Product.productID, Product.productName,Product.amount, Product.Price, Product.Discount from dbo.Product where Product.productID = ?";
+        try {
+            // tạo khay chứa câu lệnh 
+            PreparedStatement pre = connection.prepareStatement(sql);
+            pre.setString(1, productid);
+            //tạo bảng chứa giá trị của câu lệnh
+            ResultSet rs = pre.executeQuery();
+            // lặp theo từng dòng
+            while (rs.next()) {
+                //lấy giá trị theo từng cột
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                int amount = rs.getInt(3);
+                int price = rs.getInt(4);
+                int discount = rs.getInt(5);
+                p = new Product(id,name,amount,price,discount);
+            }
+
+        } catch (Exception e) {
+            String mess = e.toString();
+            System.out.println("Get account:" + mess);
+        }
+        return p;
+    }
 
     public ArrayList<User> getAllUser() {
         ArrayList<User> list = new ArrayList<User>();

@@ -49,7 +49,7 @@
                     <div class="col-12">${user}
                        
                             <div class="table-content table-responsive">
-                                <c:if test="${ cart != null}">
+                                <c:if test="${cart != null}">
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -157,9 +157,5 @@
 
 </body>
 </html>
-</c:if>
-
-<c:if test="${user == null}">
-    <form></form>
 </c:if>
 
