@@ -4,7 +4,6 @@
  */
 package controller;
 
-
 import dao.ProductDAO;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
@@ -51,7 +50,6 @@ public class AddToCartServlet extends HttpServlet {
 //            out.println("</html>");
 //        }
 //    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -64,35 +62,35 @@ public class AddToCartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String actionString = request.getPathInfo();
-            System.out.println("Do get cart");
-            System.out.println("actionString");
-            System.out.println(actionString);
-            if (actionString== null) {
-            actionString="/";
+        String actionString = request.getPathInfo();
+        System.out.println("Do get cart");
+        System.out.println("actionString");
+        System.out.println(actionString);
+        if (actionString == null) {
+            actionString = "/";
         }
-            switch (actionString) {
+        switch (actionString) {
             case "/":
-                showCart(request,response);
+                showCart(request, response);
                 break;
 //            default:
 //                throw new AssertionError();
         }
-            return;
-        }
-    
-
-     public void showCart(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-         HttpSession session = request.getSession();
-        
-         HashMap<Integer,ProductCart> cart =(HashMap<Integer, ProductCart>)session.getAttribute("cart");
-         System.out.println("Show Cart");
-         RequestDispatcher requestDispatcher = request.getRequestDispatcher("AddToCart.jsp");
-         request.setAttribute("cart", cart);
-         requestDispatcher.forward(request, response);
-         return;
+        return;
     }
+
+    public void showCart(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+
+        HashMap<Integer, ProductCart> cart = (HashMap<Integer, ProductCart>) session.getAttribute("cart");
+        System.out.println("Show Cart");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("AddToCart.jsp");
+        request.setAttribute("cart", cart);
+        requestDispatcher.forward(request, response);
+        return;
+    }
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -108,13 +106,16 @@ public class AddToCartServlet extends HttpServlet {
         System.out.println("actionString");
         System.out.println(actionString);
         switch (actionString) {
-            case "/add-to-cart": 
-                AddToCart(request,response);
+            case "/add-to-cart":
+                AddToCart(request, response);
+                break;
+            case "/update-amount":
+                udateAmount(request, response);
                 break;
             default:
-               System.out.println(actionString);
+                System.out.println(actionString);
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("LandingPage.jsp");
-                requestDispatcher.forward(request,response);
+                requestDispatcher.forward(request, response);
                 return;
         }
     }
@@ -128,39 +129,71 @@ public class AddToCartServlet extends HttpServlet {
 //    public String getServletInfo() {
 //        return "Short description";
 //    }// </editor-fold>
-
-    private static void AddToCart(HttpServletRequest request, HttpServletResponse response) 
-    throws ServletException, IOException {
-        int ProductId =Integer.parseInt(request.getParameter("ProductId"));
+    private static void AddToCart(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int ProductId = Integer.parseInt(request.getParameter("ProductId"));
         System.out.println("Run Add To Cart");
         System.out.println(ProductId);
         ProductDAO dao = new ProductDAO();
         Product product = dao.getProductByID(ProductId);
         HttpSession session = request.getSession();
         ProductCart productCart;
-        HashMap<Integer,ProductCart> cart =(HashMap<Integer, ProductCart>) session.getAttribute("cart");
+        HashMap<Integer, ProductCart> cart = (HashMap<Integer, ProductCart>) session.getAttribute("cart");
         if (cart == null) {
-            cart = new HashMap<Integer,ProductCart>();
+            cart = new HashMap<Integer, ProductCart>();
             productCart = new ProductCart(1, product);
             cart.put(ProductId, productCart);
-        }else{
+        } else {
             if (cart.containsKey(ProductId)) {
                 productCart = cart.get(ProductId);
                 productCart.incrementAmount();
-                
-            }else{
-            productCart = new ProductCart(1, product);
-            cart.put(ProductId, productCart);
+
+            } else {
+                productCart = new ProductCart(1, product);
+                cart.put(ProductId, productCart);
             }
         }
         session.setAttribute("cart", cart);
 //            for (Map.Entry<Integer, ProductCart> entry : cart.entrySet()) {
-//            System.out.println(entry.getValue().product.getProductName() + " :Số lượng" + entry.getValue().amount);
+//            System.out.println(entry.getValue().product.getProductName() + " :So luong" + entry.getValue().amount);
 //            
 //        }
-    response.sendRedirect("/Projectweb_PRJ301_SE1633/AddToCartServlet");
-    return;
+        response.sendRedirect("/Projectweb_PRJ301_SE1633/AddToCartServlet");
+        return;
     }
-        
 
+    public void udateAmount(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int ProductId = Integer.parseInt(request.getParameter("ProductId"));
+        int amount = Integer.parseInt(request.getParameter("amount"));
+        System.out.println(ProductId);
+        System.out.println(amount);
+        ProductCart productCart;
+        ProductDAO dao = new ProductDAO();
+        Product product = dao.getProductByID(ProductId);
+        HttpSession session = request.getSession();
+        HashMap<Integer, ProductCart> cart = (HashMap<Integer, ProductCart>) session.getAttribute("cart");
+        if (cart == null) {
+            cart = new HashMap<Integer, ProductCart>();
+            productCart = new ProductCart(amount, product);
+            cart.put(ProductId, productCart);
+        } else {
+            if (cart.containsKey(ProductId)) {
+                if(amount == 0){
+                    cart.remove(ProductId);
+                }else{
+                    productCart = cart.get(ProductId);
+                productCart.setAmount(amount);
+                }
+                
+
+            } else {
+                productCart = new ProductCart(amount, product);
+                cart.put(ProductId, productCart);
+            }
+        }
+        session.setAttribute("cart", cart);
+        response.sendRedirect("/Projectweb_PRJ301_SE1633/AddToCartServlet");
+        return; 
+    }
 }
