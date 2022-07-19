@@ -45,7 +45,7 @@
 
 
                                     <div class="block-cart action ">
-                                        <a class="icon-link" href=".html">
+                                        <a class="icon-link" href="AddToCart.jsp">
                                                                                 <i class="flaticon-shopping-bag"></i>
                                                                                 <span class="count">0</span> 
                                             <span class="text">
@@ -101,14 +101,14 @@
                                                         <div class="product__thumb fix">
                                                             <div class="product-image w-img">
 
-                                                                <a href=".html">
+                                                                <a href="detail?pid=${product.getProductID()}">
                                                                     <img src=${product.getImage()} alt="product">
                                                                 </a>
                                                             </div>
 
                                                         </div>
                                                         <div class="product__content-3">
-                                                            <h6><a href="product-.html">${product.getProductName()}</a></h6>
+                                                            <h6><a href="detail?pid=${product.getProductID()}">${product.getProductName()}</a></h6>
 
                                                             <div class="price mb-10">
                                                                 <span>${product.getPrice()}</span>

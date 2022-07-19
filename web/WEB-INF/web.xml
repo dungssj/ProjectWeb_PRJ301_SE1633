@@ -60,6 +60,10 @@
         <servlet-name>LogOutServlet</servlet-name>
         <servlet-class>controller.LogOutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetailsController</servlet-name>
+        <servlet-class>controller.DetailsController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AccountSettingServlet</servlet-name>
         <url-pattern>/Account</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>LogOutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailsController</servlet-name>
+        <url-pattern>/detail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

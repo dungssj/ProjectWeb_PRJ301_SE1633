@@ -83,7 +83,7 @@
                             <c:forEach items="${list}" var="item"> 
                                 <li class="col-md-3" id="one_space">
                                     <div class="product-thumb clearfix">
-                                        <a href="#" class="product-thumb">
+                                        <a href="detail?pid=${item.getProductID()}" class="product-thumb">
                                             <img src="${item.getImage()}"
                                                  alt="image" width="100%" height="214px">
                                         </a>
