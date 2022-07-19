@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </a></li>
-                <li class="navbar_link"><a href="FuncOfAdminServlet" class="nav-dropdown-hover" name="admin"><i class='fas fa-crown'></i></a></li>
+                <li class="navbar_link"><a href="FuncOfAdmin" class="nav-dropdown-hover" name="admin"><i class='fas fa-crown'></i></a></li>
         </ul>
     </div>
     <div class="background">
@@ -100,7 +100,7 @@
                                             <span class="green"></span> 
                                         </div>
                                             <div>
-                                                <span class="description"><strong>${item.getDescription()}</strong></span>
+                                                <span class="description"><strong></strong></span>
                                             </div>
                                     </div>
                                     <div class="add-to-cart text-center">
@@ -154,7 +154,7 @@
                                             <span class="green"></span> 
                                         </div>
                                         <div>
-                                            <span class="description"><strong>${item.getDescription()}</strong></span>
+                                            <span class="description"><strong></strong></span>
                                         </div>
                                     </div>
                                     <div class="add-to-cart text-center">

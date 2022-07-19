@@ -57,6 +57,10 @@
         <servlet-class>controller.LandingPageServlet2</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AdminUserServlet</servlet-name>
+        <servlet-class>controller.AdminUserServlet</servlet-class>
+        </servlet>
+    <servlet>
         <servlet-name>LogOutServlet</servlet-name>
         <servlet-class>controller.LogOutServlet</servlet-class>
     </servlet>
@@ -74,15 +78,15 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LandingPageServlet</servlet-name>
-        <url-pattern>/LandingPageServlet</url-pattern>
+        <url-pattern>/LandingPage</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminPageServlet</servlet-name>
-        <url-pattern>/AdminPageServlet</url-pattern>
+        <url-pattern>/AdminPage</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListProductServlet</servlet-name>
-        <url-pattern>/ListProductServlet</url-pattern>
+        <url-pattern>/ListProduct</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddToCartServlet</servlet-name>
@@ -90,7 +94,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FuncOfAdminServlet</servlet-name>
-        <url-pattern>/FuncOfAdminServlet</url-pattern>
+        <url-pattern>/FuncOfAdmin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditAvatarServlet</servlet-name>
@@ -102,11 +106,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditServlet</servlet-name>
-        <url-pattern>/EditServlet</url-pattern>
+        <url-pattern>/Edit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LandingPageServlet2</servlet-name>
-        <url-pattern>/LandingPageServlet2</url-pattern>
+        <url-pattern>/LandingPage2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -116,6 +120,10 @@
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/Signup</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUserServlet</servlet-name>
+        <url-pattern>/AdminUser</url-pattern>
+        </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogOutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
