@@ -99,23 +99,25 @@
                                                     <div class="product__item product__item-d">
                                                         <div class="product__thumb fix">
                                                             <div class="product-image w-img">
-                                                                <>
+                                                                
                                                             </div>
 
                                                         </div>
                                                         <div class="product__content-3">
-                                                            <h6><a href="product-.html">${o.getUserName()}</a></h6>
-
+                                                            <h6>User ID: <a href="product-.html">${o.getUserID()}</a></h6>
+                                                            <h6>User Name: <a href="product-.html">${o.getUserName()}</a></h6>
+                                                            <h6>Pass word: <a href="product-.html">${o.getPassword()}</a></h6>
+                                                            <h6>Email: <a href="product-.html">${o.getEmail()}</a></h6>
+                                                            <h6>Address: <a href="product-.html">${o.getAddress()}</a></h6>
+                                                            <h6>DOB: <a href="product-.html">${o.getDob()}</a></h6>
+                                                            <h6>Phone Number: <a href="product-.html">${o.getPhoneNumber()}</a></h6>
                                                             <div class="price mb-10">
-                                                                <span>${o.getPrice()}</span>
+                                                                <span></span>
                                                             </div>
                                                         </div>
                                                         <div class="product__add-cart-s text-center">
                                                             <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                                <a href="Edit?id=${item.getProductID()}&mode=edit">Edit</a>
-                                                            </button>
-                                                            <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                                <a href="Edit?id=${item.getProductID()}&mode=delete">Delete</a>
+                                                                <a href="Edit?id=&mode=delete">Delete</a>
                                                             </button>
 
                                                         </div>

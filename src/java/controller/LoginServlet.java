@@ -77,8 +77,10 @@ public class LoginServlet extends HttpServlet {
             User u = userDao.getAccount(username);
             HttpSession session = request.getSession();
             String name = u.getUserName();
-            session.setAttribute("user", u);
-            request.getRequestDispatcher("Welcome.jsp").forward(request, response);
+            int userid=u.getUserID();
+            session.setAttribute("user", name);
+            session.setAttribute("userid", userid);
+            response.sendRedirect("LandingPage");
         } else {
             // Nếu không có thì quay về trang sign in và hiện ra thông báo 
             request.setAttribute("msg", "Username or password is incorrect");

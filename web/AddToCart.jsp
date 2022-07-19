@@ -9,113 +9,104 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<c:if test="${user != null}">
 <html class="no-js" lang="zxx">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>AddToCart</title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- Place favicon.ico in the root directory -->
-      <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
-      <!-- CSS here -->
-      <link rel="stylesheet" href="asset/style/shop/bootstrap.css">
-      <link rel="stylesheet" href="asset/style/shop/flaticon.css">
-      <link rel="stylesheet" href="asset/style/shop/font-awesome-pro.css">
-      <link rel="stylesheet" href="asset/style/shop/default.css">
-      <link rel="stylesheet" href="asset/style/shop/shop.css">
-   </head>
-   <body>
-      <!--[if lte IE 9]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-      <![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>AddToCart</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+        <!-- CSS here -->
+        <link rel="stylesheet" href="asset/style/shop/bootstrap.css">
+        <link rel="stylesheet" href="asset/style/shop/flaticon.css">
+        <link rel="stylesheet" href="asset/style/shop/font-awesome-pro.css">
+        <link rel="stylesheet" href="asset/style/shop/default.css">
+        <link rel="stylesheet" href="asset/style/shop/shop.css">
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
 
 
- 
 
-      <!-- back to top start -->
-      
-      <!-- back to top end -->
-      
-    <!-- header-start -->
 
- 
+        <!-- back to top start -->
+
+        <!-- back to top end -->
+
+        <!-- header-start -->
+
+
         <!-- cart-area-start -->
         <section class="cart-area pt-120 pb-120">
             <div class="container">
-               <div class="row">
-                  <div class="col-12">
 
-                        <form action="#">
-                           <div class="table-content table-responsive">
-                              <table class="table">
+                <div class="row">
+                    <div class="col-12">${user}
+                       
+                            <div class="table-content table-responsive">
+                                <c:if test="${ cart != null}">
+                                <table class="table">
                                     <thead>
-                                       <tr>
-                                          <th class="product-thumbnail">Images</th>
-                                          <th class="cart-product-name">Product</th>
-                                          <th class="product-price">Unit Price</th>
-                                          <th class="product-quantity">Quantity</th>
-                                          <th class="product-subtotal">Total</th>
-                                          <th class="product-remove">Remove</th>
-                                       </tr>
+                                        <tr>
+                                            <th class="product-thumbnail">Images</th>
+                                            <th class="cart-product-name">Product</th>
+                                            <th class="product-price">Unit Price</th>
+                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-subtotal">Total</th>
+<!--                                            <th class="product-remove">Remove</th>-->
+                                        </tr>
                                     </thead>
-                                     <c:if test="${ cart != null}">   
-                                            <%
-                                            HashMap<Integer,ProductCart> cart =(HashMap<Integer, ProductCart>) request.getAttribute("cart");
-                                            for (Map.Entry<Integer, ProductCart> entry : cart.entrySet()) {
-                                                    Integer key = entry.getKey();
-                                                    ProductCart productCart = entry.getValue();
-                                                    
-                                                
-                                            %>
-                                    <tbody>
+                                        
 
-                                 
-                                       <tr>
-                                           <td class="product-thumbnail"><a href="shop-details.html"><img src="${productCart.product.getImage()}" alt=""></a></td>
-                                          <td class="product-name"><a href="shop-details.html">${productCart.product.getProductName()}</a></td>
-                                          <td class="product-price"><span class="amount">${productCart.product.getAmount()}</span></td>
-                                          <td class="product-quantity">
-                                                <div class="cart-plus-minus"><input type="text" value="1"><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
-                                          </td>
-                                          <td class="product-subtotal"><span class="amount">$130.00</span></td>
-                                          <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                       </tr>
-                                       <%}%>
-                                        </c:if>
-                                    </tbody>
-                                      </table>
-                           
-                           <div class="row">
-                              <div class="col-12">
-                                    <div class="coupon-all">
-                                       
-                                       <div class="coupon2">
-                                          <button class="tp-btn-h1" name="update_cart" type="submit">Update cart</button>
-                                       </div>
+
+                                        
+                                            <tr>
+                                                <td class="product-thumbnail"><a href="shop-details.html"><img src="" alt=""></a></td>
+                                                <td class="product-name"><a href="shop-details.html"></a></td>
+                                                <td class="product-price"><span class="price"></span></td>
+                                            
+                                                <td class="product-quantity" >
+                                                    <form action="/Projectweb_PRJ301_SE1633/AddToCartServlet/update-amount" method="POST">
+                                                    <div class="cart-plus-minus mb-2"><input type="text" name="amount" value=""><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
+                                                    <input value="" type="hidden" name="ProductId" >
+                                                    <button class="btn btn-success" type="submit">Update cart</button>
+                                                </form>
+                                                    </td>
+                                                <td class="product-subtotal"><span class="">$130.00</span></td>
+<!--                                                <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>-->
+                                            </tr>                                    
+                                    </table>
+                                </c:if>
+                                <c:if test="${cart == null}"> 
+<!--                                    <div class="alert alert-warning" role="alert"
+                                         Chưa có sản phẩm trong giỏ hàng-->
+                                     </c:if>
+                                <div class="row justify-content-end">
+                                    <div class="col-md-5">
+                                        <div class="cart-page-total">
+                                            <h2>Cart totals</h2>
+                                            <ul class="mb-20">
+                                                <li>Subtotal <span>$250.00</span></li>
+                                                <li>Total <span>$250.00</span></li>
+                                            </ul>
+                                            <a class="tp-btn-h1" href="checkout.html">Proceed to checkout</a>
+                                        </div>
                                     </div>
-                              </div>
-                           </div>
-                           <div class="row justify-content-end">
-                              <div class="col-md-5">
-                                    <div class="cart-page-total">
-                                       <h2>Cart totals</h2>
-                                       <ul class="mb-20">
-                                          <li>Subtotal <span>$250.00</span></li>
-                                          <li>Total <span>$250.00</span></li>
-                                       </ul>
-                                       <a class="tp-btn-h1" href="checkout.html">Proceed to checkout</a>
-                                    </div>
-                              </div>
-                           </div>
-                        </form>
-                  </div>
-               </div>
+                                </div>
+                        
+                    </div>
+                </div>
             </div>
-         </section>
-         <!-- cart-area-end -->
 
-       
+        </section>
+        <!-- cart-area-end -->
+
+
 
     </main>
 
@@ -159,11 +150,16 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- footer-end -->
 
-      <!-- JS here -->
-      
-   </body>
+    <!-- JS here -->
+
+</body>
 </html>
+</c:if>
+
+<c:if test="${user == null}">
+    <form></form>
+</c:if>
 

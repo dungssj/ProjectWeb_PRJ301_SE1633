@@ -4,7 +4,9 @@
     height: 600px;
     margin-left: 0;
 }
-
+.name-dropdown-hover{
+    color: black;
+}
 .slogan {
     position: absolute;
     bottom: 60%;

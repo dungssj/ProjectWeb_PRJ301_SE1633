@@ -94,7 +94,7 @@
                                 <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
                                     <div class="tp-wrapper">
                                         <div class="row g-0">
-                                            <c:forEach items="${listP}" var="o">
+                                            <c:forEach items="${listAll}" var="o">
                                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                                                     <div class="product__item product__item-d">
                                                         <div class="product__thumb fix">
@@ -115,12 +115,11 @@
                                                         </div>
                                                         <div class="product__add-cart-s text-center">
                                                             <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                                <a href="Edit?id=${item.getProductID()}&mode=edit">Edit</a>
+                                                                <a href="EditController?id=${o.getProductID()}&mode=edit">Edit</a>
                                                             </button>
                                                             <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                                <a href="Edit?id=${item.getProductID()}&mode=delete">Delete</a>
+                                                                <a href="EditController?id=${o.getProductID()}&mode=delete">Delete</a>
                                                             </button>
-
                                                         </div>
                                                     </div>
 

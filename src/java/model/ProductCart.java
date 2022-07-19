@@ -8,18 +8,43 @@ package model;
  *
  * @author longc
  */
-    public class ProductCart {
-    public int amount;
-    public Product product;
+public class ProductCart {
 
-    public ProductCart(int amount, Product product) {
-        this.amount = amount;
-        this.product = product;
-    }
+    public User user;
+    public Product product;
+    public int amount;
 
     public ProductCart() {
     }
-    public void incrementAmount(){
-    this.amount++;
+
+    public ProductCart(User user, Product product, int amount) {
+        this.user = user;
+        this.product = product;
+        this.amount = amount;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+    
 }

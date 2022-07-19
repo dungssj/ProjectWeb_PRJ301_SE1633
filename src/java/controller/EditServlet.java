@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -20,6 +21,22 @@ import java.sql.Statement;
  * @author Admin
  */
 public class EditServlet extends HttpServlet {
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        if (request.getParameter("update") != null) {
+            String name = request.getParameter("name");
+            int amount = Integer.parseInt(request.getParameter("amount"));
+            int price = Integer.parseInt(request.getParameter("price"));
+            int discount = Integer.parseInt(request.getParameter("discount"));
+
+            request.setAttribute("name", name);
+            request.setAttribute("amount", amount);
+            request.setAttribute("price", price);
+            request.setAttribute("discount", discount);      
+            request.getRequestDispatcher("EditController");
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -110,10 +127,10 @@ public class EditServlet extends HttpServlet {
 
         String name = req.getParameter("name");
         int amount = Integer.parseInt(req.getParameter("amount"));
-        int price  = Integer.parseInt(req.getParameter("price"));
+        int price = Integer.parseInt(req.getParameter("price"));
         String image = req.getParameter("image");
-        int discount=Integer.parseInt(req.getParameter("discount"));
-        String date_add=req.getParameter("date_add");
+        int discount = Integer.parseInt(req.getParameter("discount"));
+        String date_add = req.getParameter("date_add");
 
         try {
             statement = connection.createStatement();
