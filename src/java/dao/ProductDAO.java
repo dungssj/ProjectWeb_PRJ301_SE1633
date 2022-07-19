@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import model.Product;
+import model.ProductCart;
+import model.User;
 
 /**
  *
@@ -49,6 +51,28 @@ public class ProductDAO {
                 String image = rs.getString(6);
                 int discount = rs.getInt(7);
                 list.add(new Product(productID, productName, amount, des, price, image, discount));
+            }
+        } catch (Exception e) {
+            System.out.println("Error getPro: " + e.getMessage());
+        }
+        return list;
+    }
+
+    public ArrayList<User> getAllUser() {
+        ArrayList<User> list = new ArrayList<User>();
+        try {
+            String sql = "select e.UserID, e.UserName, e.Password, e.Email, e.Address, e.DOB, e.PhoneNumber from dbo.[User] e";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                int userID = rs.getInt(1);
+                String userName = rs.getString(2);
+                String Password = rs.getString(3);
+                String Email = rs.getString(4);
+                String address = rs.getString(5);
+                String DOB = rs.getString(6);
+                String phone = rs.getString(7);
+                list.add(new User(userID, userName, Password, Email, address, DOB, phone));
             }
         } catch (Exception e) {
             System.out.println("Error getPro: " + e.getMessage());
@@ -100,37 +124,65 @@ public class ProductDAO {
         return list;
     }
 
-    public void insertProduct(int id, String name, int price, String image) {
-        ArrayList<Product> list = new ArrayList<>();
+    public void insertProductToCart(int userid, int productid, int amount, int unitprice) {
         try {
-            String sql = "insert into Product values(?, ?,?,?)";
+            String sql = "insert into Cart values(?, ?,?,?)";
             PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, id);
-            stm.setString(2, name);
-            stm.setInt(3, price);
-            stm.setString(4, image);
+            stm.setInt(1, userid);
+            stm.setInt(2, productid);
+            stm.setInt(3, amount);
+            stm.setInt(4, amount*unitprice);
             stm.executeUpdate();
             stm.close();
         } catch (Exception e) {
         }
     }
-
-    public void deleteProductById(int id) {
+    
+    public int getIdUser() {
+        int i=0;
         try {
-            String delete = "delete from Product where Product.productID='" + id + "'";
+            String sql = "select u.UserID from [User] u";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                i=rs.getInt(1); 
+            }
+        } catch (Exception e) {
+            System.out.println("Error getPro: " + e.getMessage());
+        }
+        return i;
+    }
+    
+    
+
+    public int deleteProductById(int id) {
+        int i = 0;
+        try {
+            String delete = "delete from Product where Product.productID=?";
             PreparedStatement stm = connection.prepareStatement(delete);
-            stm.execute(delete);
+            stm.setInt(1, id);
+            i = stm.executeUpdate();
         } catch (Exception e) {
             System.out.println("Delete fail: " + e.getMessage());
         }
+        return i;
     }
 
-    public void updateProductById(int id) {
+    public int updateProductById(int id, String name, int amount, int price, int discount) {
+        int i = 0;
         try {
-            String update = "update Product set productName ='"+ "' where Product.productID='"+ id +"'";
-
+            String update = "update Product set productName =?,amount=?, Price=?, Discount=? where Product.productID=?";
+            PreparedStatement stm = connection.prepareStatement(update);
+            stm.setInt(1, id);
+            stm.setString(2, name);
+            stm.setInt(3, amount);
+            stm.setInt(4, price);
+            stm.setInt(5, discount);
+            i = stm.executeUpdate();
         } catch (Exception e) {
+            System.out.println("Update fail: " + e.getMessage());
         }
+        return i;
     }
 
     public int getTotalProduct() {
@@ -207,11 +259,10 @@ public class ProductDAO {
 //            System.out.println(count);;
     }
 
+    public Product getProductByID(int ProductId) {
+        String query = "select Product.productID, Product.productName,Product.amount,Product.Description, Product.Price, Product.Image, Product.Discount from Product where ProductId=?";
+        try {
 
-    public Product getProductByID(int ProductId){
-    String query ="select Product.productID, Product.productName,Product.amount,Product.Description, Product.Price, Product.Image, Product.Discount from Product where ProductId=?"; 
-    try {
-           
             PreparedStatement stm = connection.prepareStatement(query);
             stm.setInt(1, ProductId);
             ResultSet rs = stm.executeQuery();
@@ -231,6 +282,4 @@ public class ProductDAO {
         return null;
         }
        
-}
-
-
+    }

@@ -41,6 +41,16 @@ public class User {
         this.postcode = postcode;
        
     }
+    
+    public User(int userID, String userName, String password, String email, String address, String dob, String phoneNumber) {
+        this.userID = userID;
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+        this.address = address;
+        this.dob = dob;
+        this.phoneNumber = phoneNumber;  
+    }
 
     public int getUserID() {
         return userID;

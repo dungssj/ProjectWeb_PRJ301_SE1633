@@ -12,13 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form>
-            ProductID:<input type="text" value="${id}" name="id">
+        <form action="Edit">
             <br>ProductName:<input type="text" name="name">
             <br>Amount:<input type="text" name="unit">
             <br>Price<input type="text" name="price">
-            <br>Image:<input type="file" name="image">
-            <br>Discount:<input type="text" name="price">
+            <br>Discount:<input type="text" name="discount">
             <br><input type="submit" name="update" value="Update">
         </form>
     </body>

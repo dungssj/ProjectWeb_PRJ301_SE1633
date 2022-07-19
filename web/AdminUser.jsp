@@ -48,7 +48,7 @@
                                             <!--                                    i class="flaticon-shopping-bag"></i>-->
                                             <!--                                    <span class="count">0</span> -->
                                             <span class="text">
-                                                <span class="sub"><strong>Add New Product +</strong></span>
+                                                <span class="sub"><strong></strong></span>
                                                  </span> 
                                         </a>
 
@@ -73,7 +73,7 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="index.html"></a>Admin Page</li>
-                                        <li class="breadcrumb-item active" aria-current="page">Product Management</li>
+                                        <li class="breadcrumb-item active" aria-current="page">User Management</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -94,32 +94,32 @@
                                 <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
                                     <div class="tp-wrapper">
                                         <div class="row g-0">
-                                            <c:forEach items="${listAll}" var="o">
+                                            <c:forEach items="${listUser}" var="o">
                                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                                                     <div class="product__item product__item-d">
                                                         <div class="product__thumb fix">
                                                             <div class="product-image w-img">
-
-                                                                <a href=".html">
-                                                                    <img src=${o.getImage()} alt="product">
-                                                                </a>
+                                                                
                                                             </div>
 
                                                         </div>
                                                         <div class="product__content-3">
-                                                            <h6><a href="product-.html">${o.getProductName()}</a></h6>
-
+                                                            <h6>User ID: <a href="product-.html">${o.getUserID()}</a></h6>
+                                                            <h6>User Name: <a href="product-.html">${o.getUserName()}</a></h6>
+                                                            <h6>Pass word: <a href="product-.html">${o.getPassword()}</a></h6>
+                                                            <h6>Email: <a href="product-.html">${o.getEmail()}</a></h6>
+                                                            <h6>Address: <a href="product-.html">${o.getAddress()}</a></h6>
+                                                            <h6>DOB: <a href="product-.html">${o.getDob()}</a></h6>
+                                                            <h6>Phone Number: <a href="product-.html">${o.getPhoneNumber()}</a></h6>
                                                             <div class="price mb-10">
-                                                                <span>${o.getPrice()}</span>
+                                                                <span></span>
                                                             </div>
                                                         </div>
                                                         <div class="product__add-cart-s text-center">
                                                             <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                                <a href="EditController?id=${o.getProductID()}&mode=edit">Edit</a>
+                                                                <a href="Edit?id=&mode=delete">Delete</a>
                                                             </button>
-                                                            <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                                <a href="EditController?id=${o.getProductID()}&mode=delete">Delete</a>
-                                                            </button>
+
                                                         </div>
                                                     </div>
 
