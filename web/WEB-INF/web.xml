@@ -33,12 +33,28 @@
         <servlet-class>controller.ListProductServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <servlet-class>controller.AddToCartServlet</servlet-class>
+        </servlet>
+    <servlet>
         <servlet-name>FuncOfAdminServlet</servlet-name>
         <servlet-class>controller.FuncOfAdminServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditAvatarServlet</servlet-name>
         <servlet-class>controller.EditAvatarServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditController</servlet-name>
+        <servlet-class>controller.EditController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>controller.EditServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LandingPageServlet2</servlet-name>
+        <servlet-class>controller.LandingPageServlet2</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AccountSettingServlet</servlet-name>
@@ -65,12 +81,28 @@
         <url-pattern>/ListProductServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <url-pattern>/AddToCartServlet</url-pattern>
+            </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>FuncOfAdminServlet</servlet-name>
         <url-pattern>/FuncOfAdminServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditAvatarServlet</servlet-name>
         <url-pattern>/editAvatar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditController</servlet-name>
+        <url-pattern>/EditController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/EditServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LandingPageServlet2</servlet-name>
+        <url-pattern>/LandingPageServlet2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>

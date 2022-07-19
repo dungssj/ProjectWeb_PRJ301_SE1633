@@ -12,15 +12,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.util.ArrayList;
-import model.Product;
 
 /**
  *
  * @author Admin
  */
-public class AdminPageServlet extends HttpServlet {
+public class EditController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,18 +28,15 @@ public class AdminPageServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-                HttpSession session = request.getSession();
-        PrintWriter out = response.getWriter();
-        try {
-            ProductDAO pro = new ProductDAO();          
-            ArrayList<Product> listAll = pro.getNewProduct();
-            ArrayList<Product> bestseller = pro.getBestSellerProduct();
-            request.setAttribute("list", listAll);
-            request.setAttribute("bestseller", bestseller);
-            request.getRequestDispatcher("LandingPageAdmin.jsp").forward(request, response); 
-        } catch (NumberFormatException e) {
-            out.print("Error :" + e.getMessage());
+        int id=Integer.parseInt(request.getParameter("id"));
+        ProductDAO d=new ProductDAO();
+        if(request.getParameter("mode").equals("edit")){
+            request.getRequestDispatcher("InputEditProduct.jsp").forward(request, response);
+            
+        }
+        if(request.getParameter("mode").equals("delete")){
+            d.deleteProductById(id);
+            response.sendRedirect("product");
         }
     } 
 
