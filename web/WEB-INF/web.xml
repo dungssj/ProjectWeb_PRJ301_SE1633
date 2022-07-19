@@ -35,7 +35,7 @@
     <servlet>
         <servlet-name>AddToCartServlet</servlet-name>
         <servlet-class>controller.AddToCartServlet</servlet-class>
-        </servlet>
+    </servlet>
     <servlet>
         <servlet-name>FuncOfAdminServlet</servlet-name>
         <servlet-class>controller.FuncOfAdminServlet</servlet-class>
@@ -55,6 +55,10 @@
     <servlet>
         <servlet-name>LandingPageServlet2</servlet-name>
         <servlet-class>controller.LandingPageServlet2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUserServlet</servlet-name>
+        <servlet-class>controller.AdminUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AccountSettingServlet</servlet-name>
@@ -83,7 +87,7 @@
     <servlet-mapping>
         <servlet-name>AddToCartServlet</servlet-name>
         <url-pattern>/AddToCartServlet</url-pattern>
-            </servlet-mapping>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FuncOfAdminServlet</servlet-name>
         <url-pattern>/FuncOfAdminServlet</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/Signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUserServlet</servlet-name>
+        <url-pattern>/AdminUserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

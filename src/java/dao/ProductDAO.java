@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import model.Product;
+import model.User;
 
 /**
  *
@@ -55,7 +56,29 @@ public class ProductDAO {
         }
         return list;
     }
-
+    
+    public ArrayList<User> getAllUser() {
+        ArrayList<User> list = new ArrayList<User>();
+        try {
+            String sql = "select e.UserID, e.UserName, e.Password, e.Email, e.Address, e.DOB, e.PhoneNumber from dbo.[User] e";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                int userID = rs.getInt(1);
+                String userName = rs.getString(2);
+                String Password = rs.getString(3);
+                String Email = rs.getString(4);
+                String address = rs.getString(5);
+                String DOB = rs.getString(6);
+                String phone = rs.getString(7);
+                list.add(new User(userID, userName, Password, Email, address, DOB, phone));
+            }
+        } catch (Exception e) {
+            System.out.println("Error getPro: " + e.getMessage());
+        }
+        return list;
+    }
+    
     public ArrayList<Product> getNewProduct() {
         ArrayList<Product> list = new ArrayList<Product>();
         try {

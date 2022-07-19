@@ -1,5 +1,6 @@
 .background img {
-    width: 1519px;
+    width: 100%;
+    object-fit:cover;
     height: 600px;
     margin-left: 0;
 }

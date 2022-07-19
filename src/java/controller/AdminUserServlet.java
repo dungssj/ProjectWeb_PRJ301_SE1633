@@ -12,12 +12,15 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
+import model.User;
 
 /**
  *
  * @author Admin
  */
-public class EditController extends HttpServlet {
+public class AdminUserServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -28,15 +31,16 @@ public class EditController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int id=Integer.parseInt(request.getParameter("id"));
-        ProductDAO d=new ProductDAO();
-        if(request.getParameter("mode").equals("edit")){
-            request.getRequestDispatcher("InputEditProduct.jsp").forward(request, response);
-            
-        }
-        if(request.getParameter("mode").equals("delete")){
-            d.deleteProductById(id);
-            response.sendRedirect("FuncOfAdmin.jsp");
+        response.setContentType("text/html;charset=UTF-8");
+         HttpSession session = request.getSession();
+        PrintWriter out = response.getWriter();
+        try {
+            ProductDAO pro = new ProductDAO();          
+            ArrayList<User> listUser = pro.getAllUser();
+            request.setAttribute("listUser", listUser);
+            request.getRequestDispatcher("AdminUser.jsp").forward(request, response); 
+        } catch (NumberFormatException e) {
+            out.print("Error :" + e.getMessage());
         }
     } 
 
