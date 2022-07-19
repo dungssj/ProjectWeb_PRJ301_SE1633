@@ -27,7 +27,7 @@
     <body>
 
         <!--     header-start -->
-        <header class="header d-blue-bg">
+        <header class="header">
             <div class="header-mid">
                 <div class="container">
                     <div class="heade-mid-inner">
@@ -46,8 +46,8 @@
 
                                     <div class="block-cart action ">
                                         <a class="icon-link" href=".html">
-                                            <!--                                    i class="flaticon-shopping-bag"></i>-->
-                                            <!--                                    <span class="count">0</span> -->
+                                                                                <i class="flaticon-shopping-bag"></i>
+                                                                                <span class="count">0</span> 
                                             <span class="text">
                                                 <span class="sub">Your Cart:</span>
                                                 $00.00 </span> 
