@@ -29,7 +29,7 @@
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
                     <div class="card-body p-4 p-lg-5 text-black">
       
-                    <form action="SignUp" method="get">
+                    <form action="SignUp" method="post">
                         <h5 class="fs-2 fw-bold mb-3 pb-3">Sign up your information</h5>
                         <div class="row">
                             <div class="col-5">

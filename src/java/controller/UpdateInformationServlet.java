@@ -55,21 +55,21 @@ public class UpdateInformationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        User uSession = (User) request.getSession().getAttribute("user");
-        String username = request.getParameter("username");
-        String phoneNumber = request.getParameter("phonenumber");
-        String email = request.getParameter("email");
-        String gender = request.getParameter("gender");
-        String dob = request.getParameter("dob");
-        String address = request.getParameter("address");
-        String city = request.getParameter("city");
-        String postcode = request.getParameter("postcode");
-        User u = new User(uSession.getUserID(), username, uSession.getPassword(), email, 
-                address, gender, dob, postcode, phoneNumber, city, postcode);
-        UserDAO userDao = new UserDAO();
-        userDao.updateAccountInformation(u);
-        request.setAttribute("user", u);
-        request.getRequestDispatcher("AfterAccount").forward(request, response);
+//        User uSession = (User) request.getSession().getAttribute("user");
+//        String username = request.getParameter("username");
+//        String phoneNumber = request.getParameter("phonenumber");
+//        String email = request.getParameter("email");
+//        String gender = request.getParameter("gender");
+//        String dob = request.getParameter("dob");
+//        String address = request.getParameter("address");
+//        String city = request.getParameter("city");
+//        String postcode = request.getParameter("postcode");
+//        User u = new User(uSession.getUserID(), username, uSession.getPassword(), email, 
+//                address, gender, dob, postcode, phoneNumber, city, postcode);
+//        UserDAO userDao = new UserDAO();
+//        userDao.updateAccountInformation(u);
+//        request.setAttribute("user", u);
+//        request.getRequestDispatcher("AfterAccount").forward(request, response);
     } 
 
     /** 
@@ -82,7 +82,24 @@ public class UpdateInformationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        User uSession = (User) request.getSession().getAttribute("user");
+        String username = request.getParameter("username");
+        String phoneNumber = request.getParameter("phonenumber");
+        String email = request.getParameter("email");
+        String gender = request.getParameter("gender");
+        String dob = request.getParameter("dob");
+        String address = request.getParameter("address");
+        String city = request.getParameter("city");
+        String postcode = request.getParameter("postcode");
+        User u = new User(uSession.getUserID(), username, uSession.getPassword(), email, 
+                address, gender, dob, postcode, phoneNumber, city, postcode);
+        UserDAO userDao = new UserDAO();
+        // Insert information to database
+        userDao.updateAccountInformation(u);
+        // Remove and add new session to get the new update information from db
+        request.getSession().removeAttribute("user");
+        request.getSession().setAttribute("user", u);   
+        response.sendRedirect("Account");
     }
 
     /** 

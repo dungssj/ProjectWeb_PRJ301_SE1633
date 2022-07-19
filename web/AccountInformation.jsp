@@ -31,7 +31,7 @@
                                     </div>
                                     <h6 class="text-center mt-2 mb-4 userName" style="color: white;">${user.getUserName()}</h6>
                                     <ul class="p-0">
-                                        <li><a href="AccountInformation.jsp">Account</a></li>
+                                        <li><a href="Account">Account</a></li>
                                         <li><a href="HistoryOrder.jsp">History</a></li>
                                         <li><a href="Security.jsp">Security</a></li>
                                         <li><a href="#">Wishlist</a></li>
