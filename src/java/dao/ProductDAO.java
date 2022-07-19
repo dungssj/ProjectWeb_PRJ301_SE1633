@@ -207,4 +207,28 @@ public class ProductDAO {
 //            System.out.println(count);;
     }
 
+
+    public Product getProductByID(int ProductId){
+    String query ="select Product.productID, Product.productName,Product.amount,Product.Description, Product.Price, Product.Image, Product.Discount from Product where ProductId=?"; 
+    try {
+           
+            PreparedStatement stm = connection.prepareStatement(query);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                int productID = rs.getInt(1);
+                String productName = rs.getString(2);
+                int amount = rs.getInt(3);
+                String des = rs.getString(4);
+                int price = rs.getInt(5);
+                String image = rs.getString(6);
+                int discount = rs.getInt(7);
+                return new Product(productID, productName, amount, des, price, image, discount);
+            }
+        } catch (Exception e) {
+            System.out.println("Error getPro: " + e.getMessage());
+        }
+        return null;
+        }
 }
+
+

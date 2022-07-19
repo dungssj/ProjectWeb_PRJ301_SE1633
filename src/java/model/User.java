@@ -23,7 +23,7 @@ public class User {
     private String phoneNumber;
     private String city;
     private String postcode;
-
+ 
     public User() {
     }
 
@@ -39,6 +39,7 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.city = city;
         this.postcode = postcode;
+       
     }
 
     public int getUserID() {

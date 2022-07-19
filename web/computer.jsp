@@ -4,7 +4,7 @@
     Author     : longc
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html class="no-js" lang="zxx">
@@ -95,31 +95,34 @@
                                 <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
                                     <div class="tp-wrapper">
                                         <div class="row g-0">
-                                            <c:forEach items="${listP}" var="o">
+                                            <c:forEach items="${listP}" var="product">
                                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                                                     <div class="product__item product__item-d">
                                                         <div class="product__thumb fix">
                                                             <div class="product-image w-img">
 
                                                                 <a href=".html">
-                                                                    <img src=${o.getImage()} alt="product">
+                                                                    <img src=${product.getImage()} alt="product">
                                                                 </a>
                                                             </div>
 
                                                         </div>
                                                         <div class="product__content-3">
-                                                            <h6><a href="product-.html">${o.getProductName()}</a></h6>
+                                                            <h6><a href="product-.html">${product.getProductName()}</a></h6>
 
                                                             <div class="price mb-10">
-                                                                <span>${o.getPrice()}</span>
+                                                                <span>${product.getPrice()}</span>
                                                             </div>
                                                         </div>
+                                                            <form action="/Projectweb_PRJ301_SE1633/AddToCartServlet/add-to-cart" method="POST">
                                                         <div class="product__add-cart-s text-center">
-                                                            <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                            <input name="ProductId" type="hidden" value="${product.getProductID()}"/>
+                                                            <button  class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
                                                                 Add to Cart
                                                             </button>
 
                                                         </div>
+                                                            </form>
                                                     </div>
 
                                                 </div>

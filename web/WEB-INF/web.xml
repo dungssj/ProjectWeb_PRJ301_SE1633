@@ -37,6 +37,10 @@
         <servlet-class>controller.ListProductServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <servlet-class>controller.AddToCartServlet</servlet-class>
+        </servlet>
+    <servlet>
         <servlet-name>FuncOfAdminServlet</servlet-name>
         <servlet-class>controller.FuncOfAdminServlet</servlet-class>
     </servlet>
@@ -92,6 +96,10 @@
         <servlet-name>ListProductServlet</servlet-name>
         <url-pattern>/ListProductServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <url-pattern>/AddToCartServlet</url-pattern>
+            </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FuncOfAdminServlet</servlet-name>
         <url-pattern>/FuncOfAdminServlet</url-pattern>
