@@ -39,15 +39,18 @@ public class AddToCartServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         UserDAO userDao = new UserDAO();
+        ProductDAO productDao = new ProductDAO();
         String username = request.getParameter("username");
+        int id = Integer.parseInt(request.getParameter("id"));
         User u = userDao.getAccount(username);
+        Product p = productDao.getProductByID(id);
         HttpSession session = request.getSession();
         String name = u.getUserName();
         int userid = u.getUserID();
+        int productid=p.getProductID();
         session.setAttribute("user", name);
         session.setAttribute("userid", userid);
-        response.sendRedirect("LandingPage");
-
+        session.setAttribute("productid", productid);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
