@@ -30,6 +30,14 @@ public class Product {
         this.discount = discount;
     }
 
+    public Product(int id, String name, int amount, int price, int discount) {
+        this.productID = productID;
+        this.productName = productName;
+        this.amount = amount;
+        this.price = price;
+        this.discount = discount;
+    }
+
 
     public int getProductID() {
         return productID;
