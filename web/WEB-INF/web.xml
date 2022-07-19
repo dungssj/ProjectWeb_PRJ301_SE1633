@@ -17,10 +17,6 @@
         <servlet-class>controller.SignUpServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AfterAccountSettingServlet</servlet-name>
-        <servlet-class>controller.AfterAccountSettingServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ChangePasswordServlet</servlet-name>
         <servlet-class>controller.ChangePasswordServlet</servlet-class>
     </servlet>
@@ -45,24 +41,12 @@
         <servlet-class>controller.EditAvatarServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/LoginServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AccountSettingServlet</servlet-name>
         <url-pattern>/Account</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateInformationServlet</servlet-name>
         <url-pattern>/UpdateInformation</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SignUpServlet</servlet-name>
-        <url-pattern>/SignUp</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AfterAccountSettingServlet</servlet-name>
-        <url-pattern>/AfterAccount</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ChangePasswordServlet</servlet-name>
@@ -87,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>EditAvatarServlet</servlet-name>
         <url-pattern>/editAvatar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignUpServlet</servlet-name>
+        <url-pattern>/Signup</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

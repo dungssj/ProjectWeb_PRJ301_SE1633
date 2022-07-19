@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="col-md-9 content-container py-4 px-5 h-100">
                                         <h2>General Information</h2>
-                                        <form action="UpdateInformation" method="get">
+                                        <form action="UpdateInformation" method="post">
                                             <div class="row my-4">
                                                 <div class="col-6 mb-3">
                                                     <label>Username</label>
