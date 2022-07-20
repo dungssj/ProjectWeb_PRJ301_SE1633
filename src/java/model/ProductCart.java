@@ -12,15 +12,17 @@ public class ProductCart {
 
     public User user;
     public Product product;
-    public int amount;
+    public int quantity;
+    public int price;
 
     public ProductCart() {
     }
 
-    public ProductCart(User user, Product product, int amount) {
+    public ProductCart(User user, Product product, int quantity, int price) {
         this.user = user;
         this.product = product;
-        this.amount = amount;
+        this.quantity = quantity;
+        this.price = price;
     }
 
     public User getUser() {
@@ -39,12 +41,20 @@ public class ProductCart {
         this.product = product;
     }
 
-    public int getAmount() {
-        return amount;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
-    
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
 }

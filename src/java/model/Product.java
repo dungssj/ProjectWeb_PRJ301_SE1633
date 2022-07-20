@@ -12,10 +12,14 @@ public class Product {
     private int productID;
     private String productName;
     private int amount;
+    private Category category;
     private String description;
     private int price;
     private String image;
     private int discount;
+    private int view;
+    private String dateAdded;
+    private int soldQuantity;
 
     public Product() {
     }
@@ -38,6 +42,53 @@ public class Product {
         this.discount = discount;
     }
 
+    public Product(int productID, String productName, int amount, Category category, String description, int price, String image, int discount, int view, String dateAdded, int soldQuantity) {
+        this.productID = productID;
+        this.productName = productName;
+        this.amount = amount;
+        this.category = category;
+        this.description = description;
+        this.price = price;
+        this.image = image;
+        this.discount = discount;
+        this.view = view;
+        this.dateAdded = dateAdded;
+        this.soldQuantity = soldQuantity;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public int getView() {
+        return view;
+    }
+
+    public void setView(int view) {
+        this.view = view;
+    }
+
+    public String getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(String dateAdded) {
+        this.dateAdded = dateAdded;
+    }
+
+    public int getSoldQuantity() {
+        return soldQuantity;
+    }
+
+    public void setSoldQuantity(int soldQuantity) {
+        this.soldQuantity = soldQuantity;
+    }
+    
+    
 
     public int getProductID() {
         return productID;

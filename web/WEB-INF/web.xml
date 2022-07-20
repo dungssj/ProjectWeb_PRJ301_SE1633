@@ -33,10 +33,6 @@
         <servlet-class>controller.ListProductServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddToCartServlet</servlet-name>
-        <servlet-class>controller.AddToCartServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>FuncOfAdminServlet</servlet-name>
         <servlet-class>controller.FuncOfAdminServlet</servlet-class>
     </servlet>
@@ -59,10 +55,14 @@
     <servlet>
         <servlet-name>AdminUserServlet</servlet-name>
         <servlet-class>controller.AdminUserServlet</servlet-class>
-        </servlet>
+    </servlet>
     <servlet>
         <servlet-name>LogOutServlet</servlet-name>
         <servlet-class>controller.LogOutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <servlet-class>controller.AddToCartServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AccountSettingServlet</servlet-name>
@@ -87,10 +87,6 @@
     <servlet-mapping>
         <servlet-name>ListProductServlet</servlet-name>
         <url-pattern>/ListProduct</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddToCartServlet</servlet-name>
-        <url-pattern>/AddToCartServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FuncOfAdminServlet</servlet-name>
@@ -123,10 +119,14 @@
     <servlet-mapping>
         <servlet-name>AdminUserServlet</servlet-name>
         <url-pattern>/AdminUser</url-pattern>
-        </servlet-mapping>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogOutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <url-pattern>/AddToCart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

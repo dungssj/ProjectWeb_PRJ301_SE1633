@@ -76,10 +76,7 @@ public class LoginServlet extends HttpServlet {
         if(userDao.checkAccount(username, password)) {
             User u = userDao.getAccount(username);
             HttpSession session = request.getSession();
-            String name = u.getUserName();
-            int userid=u.getUserID();
-            session.setAttribute("user", name);
-            session.setAttribute("userid", userid);
+            session.setAttribute("user", u);
             response.sendRedirect("LandingPage");
         } else {
             // Nếu không có thì quay về trang sign in và hiện ra thông báo 

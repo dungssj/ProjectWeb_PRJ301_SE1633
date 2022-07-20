@@ -9,7 +9,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<c:if test="${user != null}">
 <html class="no-js" lang="zxx">
     <head>
         <meta charset="utf-8">
@@ -49,7 +48,7 @@
                     <div class="col-12">${user}
                        
                             <div class="table-content table-responsive">
-                                <c:if test="${cart != null}">
+                                
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -61,27 +60,25 @@
 <!--                                            <th class="product-remove">Remove</th>-->
                                         </tr>
                                     </thead>
-                                        
+                                    <c:forEach items="${productCartList}" var="productCart">
+                                        <tr>
+                                            <td class="product-thumbnail"><a href="shop-details.html"><img src="${productCart.getProduct().getImage()}" alt="" width="150px"></a></td>
+                                            <td class="product-name"><a href="shop-details.html">${productCart.getProduct().getProductName()}</a></td>
+                                            <td class="product-price"><span class="price">${productCart.getPrice()}</span></td>
 
-
-                                        
-                                            <tr>
-                                                <td class="product-thumbnail"><a href="shop-details.html"><img src="" alt=""></a></td>
-                                                <td class="product-name"><a href="shop-details.html"></a></td>
-                                                <td class="product-price"><span class="price"></span></td>
-                                            
-                                                <td class="product-quantity" >
-                                                    <form action="/Projectweb_PRJ301_SE1633/AddToCartServlet/update-amount" method="POST">
-                                                    <div class="cart-plus-minus mb-2"><input type="text" name="amount" value=""><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
-                                                    <input value="" type="hidden" name="ProductId" >
-                                                    <button class="btn btn-success" type="submit">Update cart</button>
-                                                </form>
-                                                    </td>
-                                                <td class="product-subtotal"><span class="">$130.00</span></td>
+                                            <td class="product-quantity" >
+                                                <form action="/Projectweb_PRJ301_SE1633/AddToCartServlet/update-amount" method="POST">
+                                                <div class="cart-plus-minus mb-2"><input type="text" name="amount" value=""><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
+                                                <input value="" type="hidden" name="ProductId" >
+                                                <button class="btn btn-success" type="submit">Update cart</button>
+                                            </form>
+                                                </td>
+                                            <td class="product-subtotal"><span class="">$130.00</span></td>
 <!--                                                <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>-->
-                                            </tr>                                    
-                                    </table>
-                                </c:if>
+                                        </tr>                                                                            
+                                    </c:forEach>
+                                </table>
+
                                 <c:if test="${cart == null}"> 
 <!--                                    <div class="alert alert-warning" role="alert"
                                          Chưa có sản phẩm trong giỏ hàng-->
@@ -157,5 +154,5 @@
 
 </body>
 </html>
-</c:if>
+
 
