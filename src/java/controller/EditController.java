@@ -11,6 +11,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import model.Product;
 
 /**
  *
@@ -30,20 +32,11 @@ public class EditController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("name");
-        int amount = Integer.parseInt(request.getParameter("amount"));
-        int price = Integer.parseInt(request.getParameter("price"));
-        int discount = Integer.parseInt(request.getParameter("discount"));
         ProductDAO d = new ProductDAO();
-        if (request.getParameter("mode").equals("edit")) {
-            request.getRequestDispatcher("InputEditProduct.jsp").forward(request, response);
-            d.updateProductById(id, name, amount, price, discount);
-            response.sendRedirect("FuncOfAdmin");
-        }
-        if (request.getParameter("mode").equals("delete")) {
-            d.deleteProductById(id);
-            response.sendRedirect("FuncOfAdmin");
-        }
+        Product pro = new Product();
+        pro = d.getProductByID(id);
+        request.setAttribute("pro", pro);
+        request.getRequestDispatcher("InputEditProduct.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
