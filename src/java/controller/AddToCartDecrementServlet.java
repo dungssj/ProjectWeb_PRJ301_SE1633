@@ -71,6 +71,7 @@ public class AddToCartDecrementServlet extends HttpServlet {
         if(quantity == 0) {
             cartDao.removeProductCartByID(product, u);
         }
+        
         cartDao.updateQuantityAndPrice(product, u, quantity);
         response.sendRedirect("AddToCart");
     } 

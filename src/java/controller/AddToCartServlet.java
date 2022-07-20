@@ -64,6 +64,11 @@ public class AddToCartServlet extends HttpServlet {
         User u = (User) request.getSession().getAttribute("user");
         ArrayList<ProductCart> productCartList = new ArrayList<>();
         productCartList = cartDao.getProductFromCartByUserID(u);
+        int totalPrice = 0;
+        for (ProductCart productCart : productCartList) {
+            totalPrice +=productCart.price;
+        }
+        request.setAttribute("totalPrice", totalPrice);
         request.setAttribute("productCartList", productCartList);
         request.getRequestDispatcher("AddToCart.jsp").forward(request, response);
     } 
@@ -96,6 +101,11 @@ public class AddToCartServlet extends HttpServlet {
         }
         ArrayList<ProductCart> productCartList = new ArrayList<>();
         productCartList = cartDao.getProductFromCartByUserID(u);
+        int totalPrice = 0;
+        for (ProductCart productCart : productCartList) {
+            totalPrice +=productCart.price;
+        }
+        request.setAttribute("totalPrice", totalPrice);
         request.setAttribute("productCartList", productCartList);
         request.getRequestDispatcher("AddToCart.jsp").forward(request, response);
     }

@@ -129,8 +129,7 @@
                                         <div class="cart-page-total">
                                             <h2>Cart totals</h2>
                                             <ul class="mb-20">
-                                                <li>Subtotal <span>$250.00</span></li>
-                                                <li>Total <span>$250.00</span></li>
+                                                <li>Total <span>${totalPrice}</span></li>
                                             </ul>
                                             <a class="tp-btn-h1" href="checkout.html">Proceed to checkout</a>
                                         </div>
