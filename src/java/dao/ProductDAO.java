@@ -195,21 +195,19 @@ public class ProductDAO {
         return i;
     }
 
-    public int updateProductById(int id, String name, int amount, int price, int discount) {
-        int i = 0;
-        try {
-            String update = "update Product set productName =?,amount=?, Price=?, Discount=? where Product.productID=?";
+    public void updateProductById(Product product) {
+        String update = "update Product set productName ='?',amount=?, Price=?, Discount=? where Product.productID=?";
+        try {           
             PreparedStatement stm = connection.prepareStatement(update);
-            stm.setInt(1, id);
-            stm.setString(2, name);
-            stm.setInt(3, amount);
-            stm.setInt(4, price);
-            stm.setInt(5, discount);
-            i = stm.executeUpdate();
+            stm.setString(1, product.getProductName());
+            stm.setInt(2,product.getAmount());
+            stm.setInt(3, product.getPrice());
+            stm.setInt(4, product.getDiscount());
+            stm.setInt(5, product.getProductID());
+            stm.executeUpdate();
         } catch (Exception e) {
             System.out.println("Update fail: " + e.getMessage());
-        }
-        return i;
+        };
     }
 
     public int getTotalProduct() {

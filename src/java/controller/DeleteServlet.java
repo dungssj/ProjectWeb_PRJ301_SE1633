@@ -11,31 +11,28 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import model.Product;
 
 /**
  *
  * @author Admin
  */
-public class EditServlet extends HttpServlet {
+public class DeleteServlet extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("update")!=null){
-        int id=Integer.parseInt(request.getParameter("id"));
-        String name=request.getParameter("name");
-        int amount=Integer.parseInt(request.getParameter("amount"));
-        int price =Integer.parseInt(request.getParameter("price"));
-        int discount =Integer.parseInt(request.getParameter("discount"));
-        ProductDAO dao=new ProductDAO();
-        Product product = new Product(id, name, amount, price,discount); 
-        dao.updateProductById(product);
+        int id = Integer.parseInt(request.getParameter("id"));
+        ProductDAO d = new ProductDAO();
+        d.deleteProductById(id);
         response.sendRedirect("FuncOfAdmin");
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

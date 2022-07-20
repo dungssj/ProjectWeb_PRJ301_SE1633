@@ -59,10 +59,14 @@
     <servlet>
         <servlet-name>AdminUserServlet</servlet-name>
         <servlet-class>controller.AdminUserServlet</servlet-class>
-        </servlet>
+    </servlet>
     <servlet>
         <servlet-name>LogOutServlet</servlet-name>
         <servlet-class>controller.LogOutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>controller.DeleteServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AccountSettingServlet</servlet-name>
@@ -123,10 +127,14 @@
     <servlet-mapping>
         <servlet-name>AdminUserServlet</servlet-name>
         <url-pattern>/AdminUser</url-pattern>
-        </servlet-mapping>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogOutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/Delete</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
