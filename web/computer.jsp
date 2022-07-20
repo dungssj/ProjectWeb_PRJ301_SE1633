@@ -114,10 +114,10 @@
                                                                 <span>${product.getPrice()}</span>
                                                             </div>
                                                         </div>
-                                                            <form action="/Projectweb_PRJ301_SE1633/AddToCartServlet/add-to-cart" method="POST">
+                                                            <form action="AddToCart" method="post">
                                                         <div class="product__add-cart-s text-center">
                                                             <input name="ProductId" type="hidden" value="${product.getProductID()}"/>
-                                                            <button  class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
+                                                            <button  class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100" type="submit">
                                                                 Add to Cart
                                                             </button>
 

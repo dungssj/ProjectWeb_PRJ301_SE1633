@@ -33,10 +33,6 @@
         <servlet-class>controller.ListProductServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddToCartServlet</servlet-name>
-        <servlet-class>controller.AddToCartServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>FuncOfAdminServlet</servlet-name>
         <servlet-class>controller.FuncOfAdminServlet</servlet-class>
     </servlet>
@@ -68,6 +64,10 @@
         <servlet-name>DetailsController</servlet-name>
         <servlet-class>controller.DetailsController</servlet-class>
         </servlet>
+        <servlet>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <servlet-class>controller.AddToCartServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>DeleteServlet</servlet-name>
         <servlet-class>controller.DeleteServlet</servlet-class>
@@ -95,10 +95,6 @@
     <servlet-mapping>
         <servlet-name>ListProductServlet</servlet-name>
         <url-pattern>/ListProduct</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddToCartServlet</servlet-name>
-        <url-pattern>/AddToCartServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FuncOfAdminServlet</servlet-name>
@@ -139,8 +135,12 @@
     <servlet-mapping>
         <servlet-name>DetailsController</servlet-name>
         <url-pattern>/detail</url-pattern>
-        </servlet>
-    <servlet>
+        </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <url-pattern>/AddToCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>DeleteServlet</servlet-name>
         <url-pattern>/Delete</url-pattern>
     </servlet-mapping>
