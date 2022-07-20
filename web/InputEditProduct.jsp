@@ -13,10 +13,11 @@
     </head>
     <body>
         <form action="Edit">
-            <br>ProductName:<input type="text" name="name">
-            <br>Amount:<input type="text" name="unit">
-            <br>Price<input type="text" name="price">
-            <br>Discount:<input type="text" name="discount">
+            <input type="text" name="id" value="${pro.getProductID()}" hidden="">
+            <br>ProductName:<input type="text" name="name" value="${pro.getProductName()}">
+            <br>Amount:<input type="text" name="amount" value="${pro.getAmount()}">
+            <br>Price<input type="text" name="price" value="${pro.getPrice()}">
+            <br>Discount:<input type="text" name="discount" value="${pro.getDiscount()}">
             <br><input type="submit" name="update" value="Update">
         </form>
     </body>
