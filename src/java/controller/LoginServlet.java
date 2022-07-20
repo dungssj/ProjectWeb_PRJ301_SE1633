@@ -76,6 +76,7 @@ public class LoginServlet extends HttpServlet {
         if(userDao.checkAccount(username, password)) {
             User u = userDao.getAccount(username);
             HttpSession session = request.getSession();
+            String name = u.getUserName();
             session.setAttribute("user", u);
             response.sendRedirect("LandingPage");
         } else {

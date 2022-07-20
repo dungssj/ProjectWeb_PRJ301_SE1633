@@ -115,10 +115,10 @@
                                                         </div>
                                                         <div class="product__add-cart-s text-center">
                                                             <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                                <a href="EditController?id=${o.getProductID()}&mode=edit">Edit</a>
+                                                                <a href="EditController?id=${o.getProductID()}">Edit</a>
                                                             </button>
                                                             <button type="button" class="cart-btn d-flex mb-10 align-items-center justify-content-center w-100">
-                                                                <a href="EditController?id=${o.getProductID()}&mode=delete">Delete</a>
+                                                                <a href="Delete?id=${o.getProductID()}">Delete</a>
                                                             </button>
                                                         </div>
                                                     </div>
