@@ -63,14 +63,22 @@
     <servlet>
         <servlet-name>DetailsController</servlet-name>
         <servlet-class>controller.DetailsController</servlet-class>
-        </servlet>
-        <servlet>
+    </servlet>
+    <servlet>
         <servlet-name>AddToCartServlet</servlet-name>
         <servlet-class>controller.AddToCartServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteServlet</servlet-name>
         <servlet-class>controller.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddToCartIncrementServlet</servlet-name>
+        <servlet-class>controller.AddToCartIncrementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddToCartDecrementServlet</servlet-name>
+        <servlet-class>controller.AddToCartDecrementServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AccountSettingServlet</servlet-name>
@@ -135,7 +143,7 @@
     <servlet-mapping>
         <servlet-name>DetailsController</servlet-name>
         <url-pattern>/detail</url-pattern>
-        </servlet-mapping>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddToCartServlet</servlet-name>
         <url-pattern>/AddToCart</url-pattern>
@@ -143,6 +151,14 @@
     <servlet-mapping>
         <servlet-name>DeleteServlet</servlet-name>
         <url-pattern>/Delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartIncrementServlet</servlet-name>
+        <url-pattern>/Increment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartDecrementServlet</servlet-name>
+        <url-pattern>/Decrement</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -47,11 +47,7 @@
                         </div>
                     </a></li>
                 <div class="dropdown">
-<<<<<<< HEAD
-                    <li class="navbar_link"><a href="#" class="name-dropdown-hover" ></a>${user.getUserName()}</li>
-=======
                     <li class="navbar_link"><a href="#" class="name-dropdown-hover" ></a>${user.getUserName()}<i class="glyphicon glyphicon-user"></i></li>
->>>>>>> c9b8ee6c92d079a237e29d9951bff7a616b49737
                     <div class="dropdown-content">
                         <a href="logout" class="drop1">Log out</a>
                         <div class="drop_space"></div>
@@ -115,7 +111,10 @@
                                             </div>
                                         </div>
                                         <div class="add-to-cart text-center">
-                                            <a href="AddToCart.jsp">ADD TO CART</a>
+                                            <form action="AddToCart" method="post">
+                                                <button type="submit" style="border: none; outline: none; background-color: unset; color:white">ADD TO CART</button>
+                                                <input name="ProductId" type="hidden" value="${item.getProductID()}"/>
+                                            </form>
                                         </div>
                                         <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
                                     </li>
