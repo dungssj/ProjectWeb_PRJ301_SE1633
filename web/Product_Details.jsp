@@ -17,13 +17,14 @@
         <link rel="stylesheet" href="asset/style/landingpage/LandingPage.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+</head>
+<body>
         <!--Begin Header-->
 
         <!--Begin Logo-->
     <div class="menu">
         <div id="logo" class="logo float-left">
-            <a href="index.html" title="logo">
+            <a href="LandingPage" title="logo">
                 <img src="asset/img/landingpage/logo.png" alt="image" width="107" height="24" data-retina=""C:\Users\Admin\Downloads\modaz-minimalist-ecommerce-html-template-2022-02-21-23-53-38-utc\modaz-package\modaz\images\logo@2x.png""
                      data-width="107" data-height="24">
             </a>
@@ -58,8 +59,7 @@
             </div>
         </ul>
     </div>
-</head>
-<body>
+
     <section class="vw-100">
         <div class="container-fluid w-100">
             <div class="row container-row p-3 p-lg-5">
@@ -111,8 +111,9 @@
                 </div>
             </div>
         </div>
-    </section>
 
+    </section>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

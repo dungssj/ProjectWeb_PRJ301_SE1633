@@ -20,7 +20,7 @@
         <c:if test="${user != null}">
         <div class="menu">
             <div id="logo" class="logo float-left">
-                <a href="index.html" title="logo">
+                <a href="LandingPage" title="logo">
                     <img src="asset/img/landingpage/logo.png" alt="image" width="107" height="24" data-retina=""C:\Users\Admin\Downloads\modaz-minimalist-ecommerce-html-template-2022-02-21-23-53-38-utc\modaz-package\modaz\images\logo@2x.png""
                          data-width="107" data-height="24">
                 </a>
@@ -47,7 +47,11 @@
                         </div>
                     </a></li>
                 <div class="dropdown">
+<<<<<<< HEAD
+                    <li class="navbar_link"><a href="#" class="name-dropdown-hover" ></a>${user.getUserName()}</li>
+=======
                     <li class="navbar_link"><a href="#" class="name-dropdown-hover" ></a>${user.getUserName()}<i class="glyphicon glyphicon-user"></i></li>
+>>>>>>> c9b8ee6c92d079a237e29d9951bff7a616b49737
                     <div class="dropdown-content">
                         <a href="logout" class="drop1">Log out</a>
                         <div class="drop_space"></div>
