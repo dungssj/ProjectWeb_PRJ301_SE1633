@@ -61,6 +61,10 @@
         <servlet-class>controller.LogOutServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>DetailsController</servlet-name>
+        <servlet-class>controller.DetailsController</servlet-class>
+        </servlet>
+        <servlet>
         <servlet-name>AddToCartServlet</servlet-name>
         <servlet-class>controller.AddToCartServlet</servlet-class>
     </servlet>
@@ -128,6 +132,10 @@
         <servlet-name>LogOutServlet</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailsController</servlet-name>
+        <url-pattern>/detail</url-pattern>
+        </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddToCartServlet</servlet-name>
         <url-pattern>/AddToCart</url-pattern>

@@ -17,7 +17,7 @@
         <!--Begin Header-->
 
         <!--Begin Logo-->
-        <c:if test="${user.getUserName() != null}">
+        <c:if test="${user != null}">
         <div class="menu">
             <div id="logo" class="logo float-left">
                 <a href="index.html" title="logo">
@@ -32,12 +32,12 @@
                 <li class="navbar_link"><a></a></li>
                 <li class="navbar_link"><a></a></li>
                 <li class="navbar_link"><a></a></li>
-                <li class="navbar_link"><a href="#">HOME</a></li>
+                <li class="navbar_link"><a href="LandingPage">HOME</a></li>
                 <li class="navbar_link"><a href="ListProduct">SHOP</a></li>
                 <li class="navbar_link"><a href="#">ABOUT US</a></li>
                 <li class="navbar_link"><a href="#">CONTACT US</a></li>
                 <li class="navbar_link"><a></a></li>
-                <li class="navbar_link"><a href="#"><i class="glyphicon glyphicon-shopping-cart cart-icon"></i><span
+                <li class="navbar_link"><a href="AddToCart"><i class="glyphicon glyphicon-shopping-cart cart-icon"></i><span
                             class="badge"></span></a></li>
                 <li class="navbar_link"><a href="#">
                         <div class="box">
@@ -47,7 +47,11 @@
                         </div>
                     </a></li>
                 <div class="dropdown">
+<<<<<<< HEAD
                     <li class="navbar_link"><a href="#" class="name-dropdown-hover" ></a>${user.getUserName()}</li>
+=======
+                    <li class="navbar_link"><a href="#" class="name-dropdown-hover" ></a>${user.getUserName()}<i class="glyphicon glyphicon-user"></i></li>
+>>>>>>> c9b8ee6c92d079a237e29d9951bff7a616b49737
                     <div class="dropdown-content">
                         <a href="logout" class="drop1">Log out</a>
                         <div class="drop_space"></div>
@@ -225,7 +229,7 @@
     </footer>
 </c:if>
 
-<c:if test="${u.getUserName() == null}">
+<c:if test="${user == null}">
     <div class="menu">
         <div id="logo" class="logo float-left">
             <a href="index.html" title="logo">
@@ -240,12 +244,12 @@
             <li class="navbar_link"><a></a></li>
             <li class="navbar_link"><a></a></li>
             <li class="navbar_link"><a></a></li>
-            <li class="navbar_link"><a href="#">HOME</a></li>
-            <li class="navbar_link"><a href="#">SHOP</a></li>
+            <li class="navbar_link"><a href="LandingPage">HOME</a></li>
+            <li class="navbar_link"><a href="ListProduct">SHOP</a></li>
             <li class="navbar_link"><a href="#">ABOUT US</a></li>
             <li class="navbar_link"><a href="#">CONTACT US</a></li>
             <li class="navbar_link"><a></a></li>
-            <li class="navbar_link"><a href="#"><i class="glyphicon glyphicon-shopping-cart cart-icon"></i><span
+            <li class="navbar_link"><a href="LandingPage"><i class="glyphicon glyphicon-shopping-cart cart-icon"></i><span
                         class="badge"></span></a></li>
             <li class="navbar_link"><a href="#">
                     <div class="box">
@@ -293,7 +297,7 @@
                             <c:forEach items="${list}" var="item"> 
                                 <li class="col-md-3" id="one_space">
                                     <div class="product-thumb clearfix">
-                                        <a href="#" class="product-thumb">
+                                        <a href="detail?pid=${item.getProductID()}" class="product-thumb">
                                             <img src="${item.getImage()}"
                                                  alt="image" width="100%" height="214px">
                                         </a>

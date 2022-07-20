@@ -45,7 +45,7 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-12">${user}
+                    <div class="col-12">${user.getUserName()}
                        
                             <div class="table-content table-responsive">
                                 

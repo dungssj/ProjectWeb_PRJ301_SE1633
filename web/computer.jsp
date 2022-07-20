@@ -45,7 +45,7 @@
 
 
                                     <div class="block-cart action ">
-                                        <a class="icon-link" href=".html">
+                                        <a class="icon-link" href="AddToCart.jsp">
                                                                                 <i class="flaticon-shopping-bag"></i>
                                                                                 <span class="count">0</span> 
                                             <span class="text">
@@ -73,7 +73,7 @@
                             <div class="breadcrumb__wrapper">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="LandingPage">Home</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Shop</li>
                                     </ol>
                                 </nav>
@@ -101,14 +101,14 @@
                                                         <div class="product__thumb fix">
                                                             <div class="product-image w-img">
 
-                                                                <a href=".html">
+                                                                <a href="detail?pid=${product.getProductID()}">
                                                                     <img src=${product.getImage()} alt="product">
                                                                 </a>
                                                             </div>
 
                                                         </div>
                                                         <div class="product__content-3">
-                                                            <h6><a href="product-.html">${product.getProductName()}</a></h6>
+                                                            <h6><a href="detail?pid=${product.getProductID()}">${product.getProductName()}</a></h6>
 
                                                             <div class="price mb-10">
                                                                 <span>${product.getPrice()}</span>
@@ -140,13 +140,13 @@
 
                                         <ul class="pagination">
                                             <c:if test="${tag > 1}">
-                                            <li class="page-item"><a href="ListProductServlet?index=${tag-1}" class="page-link"><<</a></li>
+                                            <li class="page-item"><a href="ListProduct?index=${tag-1}" class="page-link"><<</a></li>
                                             </c:if>
                                                 <c:forEach begin="${1}" end="${endP}" var="i">
-                                                <li class="page-item ${tag == i?"active":""}"><a href="ListProductServlet?index=${i}" class="page-link">${i}</a></li>
+                                                <li class="page-item ${tag == i?"active":""}"><a href="ListProduct?index=${i}" class="page-link">${i}</a></li>
                                                 </c:forEach>
                                                 <c:if test="${tag < endP}">
-                                            <li class="page-item"><a href="ListProductServlet?index=${tag+1}" class="page-link">>></a></li>
+                                            <li class="page-item"><a href="ListProduct?index=${tag+1}" class="page-link">>></a></li>
                                             </c:if>
                                         </ul>
                                     </div>
