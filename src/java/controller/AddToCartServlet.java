@@ -60,7 +60,12 @@ public class AddToCartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.sendRedirect("AddToCart.jsp");
+        CartDAO cartDao = new CartDAO();
+        User u = (User) request.getSession().getAttribute("user");
+        ArrayList<ProductCart> productCartList = new ArrayList<>();
+        productCartList = cartDao.getProductFromCartByUserID(u);
+        request.setAttribute("productCartList", productCartList);
+        request.getRequestDispatcher("AddToCart.jsp").forward(request, response);
     } 
 
     /** 

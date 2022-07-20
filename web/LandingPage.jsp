@@ -17,7 +17,7 @@
         <!--Begin Header-->
 
         <!--Begin Logo-->
-        <c:if test="${u.getUserName() != null}">
+        <c:if test="${user.getUserName() != null}">
         <div class="menu">
             <div id="logo" class="logo float-left">
                 <a href="index.html" title="logo">
@@ -47,7 +47,7 @@
                         </div>
                     </a></li>
                 <div class="dropdown">
-                    <li class="navbar_link"><a href="#" class="name-dropdown-hover" ></a>${u.getUserName()}</li>
+                    <li class="navbar_link"><a href="#" class="name-dropdown-hover" ></a>${user.getUserName()}</li>
                     <div class="dropdown-content">
                         <a href="logout" class="drop1">Log out</a>
                         <div class="drop_space"></div>
