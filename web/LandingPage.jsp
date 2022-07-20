@@ -87,7 +87,7 @@
                         <div class="product-content product-fourcolumn clearfix">
                             <ul class="product clearfix">
                                 <c:forEach items="${list}" var="item"> 
-                                    <li class="col-md-3" id="one_space">
+                                    <li class="col-md-3" id="one_space" style="padding: 0">
                                         <div class="product-thumb clearfix">
                                             <a href="#" class="product-thumb">
                                                 <img src="${item.getImage()}"
@@ -141,7 +141,7 @@
                         <div class="product-content product-fourcolumn clearfix">
                             <ul class="product clearfix">
                                 <c:forEach items="${bestseller}" var="item"> 
-                                    <li class="col-md-3" id="one_space">
+                                    <li class="col-md-3" id="one_space" style="padding: 0">
                                         <div class="product-thumb clearfix">
                                             <a href="#" class="product-thumb">
                                                 <img src="${item.getImage()}"
@@ -295,7 +295,7 @@
                     <div class="product-content product-fourcolumn clearfix">
                         <ul class="product clearfix">
                             <c:forEach items="${list}" var="item"> 
-                                <li class="col-md-3" id="one_space">
+                                <li class="col-md-3" id="one_space" style="padding: 0">
                                     <div class="product-thumb clearfix">
                                         <a href="detail?pid=${item.getProductID()}" class="product-thumb">
                                             <img src="${item.getImage()}"
@@ -349,7 +349,7 @@
                     <div class="product-content product-fourcolumn clearfix">
                         <ul class="product clearfix">
                             <c:forEach items="${bestseller}" var="item"> 
-                                <li class="col-md-3" id="one_space">
+                                <li class="col-md-3" id="one_space" style="padding: 0">
                                     <div class="product-thumb clearfix">
                                         <a href="#" class="product-thumb">
                                             <img src="${item.getImage()}"
