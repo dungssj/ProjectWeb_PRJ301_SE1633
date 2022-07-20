@@ -305,5 +305,6 @@ public class ProductDAO {
             System.out.println("Error getPro: " + e.getMessage());
         }
         return null;
+        }
+       
     }
-}

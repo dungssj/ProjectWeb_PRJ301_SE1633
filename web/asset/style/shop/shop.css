@@ -210,7 +210,7 @@ button:focus {
     font-size: 13px;
     line-height: 1.1;
     display: block;
-    color: #ffffff;
+    
   }
   @media only screen and (min-width: 576px) and (max-width: 767px) {
     .header-action .icon-link span {
@@ -267,7 +267,7 @@ button:focus {
     color: #ffffff;
   }
   .header-action .text {
-    color: #ffffff;
+/*    color: #ffffff;*/
   }
   .header-action .sub {
     color: #ffffff;
