@@ -94,7 +94,7 @@
                                 <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
                                     <div class="tp-wrapper">
                                         <div class="row g-0">
-                                            <c:forEach items="${listAll}" var="o">
+                                            <c:forEach items="${listP}" var="o">
                                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                                                     <div class="product__item product__item-d">
                                                         <div class="product__thumb fix">
@@ -138,13 +138,13 @@
 
                                         <ul class="pagination">
                                             <c:if test="${tag > 1}">
-                                            <li class="page-item"><a href="FuncOfAdminServlet?index=${tag-1}" class="page-link"><<</a></li>
+                                            <li class="page-item"><a href="FuncOfAdmin?index=${tag-1}" class="page-link"><<</a></li>
                                             </c:if>
                                                 <c:forEach begin="${1}" end="${endP}" var="i">
-                                                <li class="page-item ${tag == i?"active":""}"><a href="FuncOfAdminServlet?index=${i}" class="page-link">${i}</a></li>
+                                                <li class="page-item ${tag == i?"active":""}"><a href="FuncOfAdmin?index=${i}" class="page-link">${i}</a></li>
                                                 </c:forEach>
                                                 <c:if test="${tag < endP}">
-                                            <li class="page-item"><a href="FuncOfAdminServlet?index=${tag+1}" class="page-link">>></a></li>
+                                            <li class="page-item"><a href="FuncOfAdmin?index=${tag+1}" class="page-link">>></a></li>
                                             </c:if>
                                         </ul>
                                     </div>
