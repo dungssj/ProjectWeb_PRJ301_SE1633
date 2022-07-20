@@ -36,7 +36,7 @@ public class CartDAO {
     }
     
     public ArrayList<ProductCart> getProductFromCartByUserID(User u) {
-        String sql = "select p.productID ,p.productName,c.Quantity, c.Price, p.[Image] from dbo.Cart c, dbo.[User] u, dbo.[Product] p\n"
+        String sql = "select p.productID ,p.productName,c.Quantity, c.Price, p.[Image], p.Price from dbo.Cart c, dbo.[User] u, dbo.[Product] p\n"
                 + "where c.ProductID = p.productID and c.UserID = u.UserID and u.UserID = ?";
         ArrayList<ProductCart> productCartList = new ArrayList<>();
         try {
@@ -53,10 +53,10 @@ public class CartDAO {
                 int quantity = rs.getInt(3);
                 int price = rs.getInt(4);
                 String image = rs.getString(5);
-                Product p = new Product(productID, productName, 0, new Category(), "", 0, image, 0, 0, "", 0);
+                int productPrice = rs.getInt(6);
+                Product p = new Product(productID, productName, 0, new Category(), "", productPrice, image, 0, 0, "", 0);
                 productCartList.add(new ProductCart(u, p, quantity, price));
             }
-
         } catch (Exception e) {
             String mess = e.toString();
             System.out.println("getProductFromCartByUserID:" + mess);
@@ -145,6 +145,21 @@ public class CartDAO {
             System.out.println("Check Account:" + mess);
         }
         return amount;
+    }
+    
+    public void removeProductCartByID(Product product, User u) {
+        String sql = "delete from dbo.Cart\n"
+                + "where UserID = ? and ProductID = ?";
+        try {
+            // tạo khay chứa câu lệnh 
+            PreparedStatement pre = connection.prepareStatement(sql);
+            pre.setInt(1, u.getUserID());
+            pre.setInt(2, product.getProductID());
+            pre.executeUpdate();
+        } catch (Exception e) {
+            String mess = e.toString();
+            System.out.println("Check Account:" + mess);
+        }
     }
     
 

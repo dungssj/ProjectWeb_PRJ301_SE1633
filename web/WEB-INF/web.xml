@@ -73,6 +73,14 @@
         <servlet-class>controller.DeleteServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AddToCartIncrementServlet</servlet-name>
+        <servlet-class>controller.AddToCartIncrementServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddToCartDecrementServlet</servlet-name>
+        <servlet-class>controller.AddToCartDecrementServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CheckoutServlet</servlet-name>
         <servlet-class>controller.CheckoutServlet</servlet-class>
     </servlet>
@@ -149,6 +157,14 @@
         <url-pattern>/Delete</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AddToCartIncrementServlet</servlet-name>
+        <url-pattern>/Increment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartDecrementServlet</servlet-name>
+        <url-pattern>/Decrement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>    
         <servlet-name>CheckoutServlet</servlet-name>
         <url-pattern>/Checkout</url-pattern>
     </servlet-mapping>

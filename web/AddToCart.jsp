@@ -106,16 +106,15 @@
                                         <tr>
                                             <td class="product-thumbnail"><a href="shop-details.html"><img src="${productCart.getProduct().getImage()}" alt="" width="150px"></a></td>
                                             <td class="product-name"><a href="shop-details.html">${productCart.getProduct().getProductName()}</a></td>
-                                            <td class="product-price"><span class="price">${productCart.getPrice()}</span></td>
+                                            <td class="product-price"><span class="price">${productCart.getProduct().getPrice()}</span></td>
 
                                             <td class="product-quantity" >
                                                 <form action="/Projectweb_PRJ301_SE1633/AddToCartServlet/update-amount" method="POST">
-                                                <div class="cart-plus-minus mb-2"><input type="text" name="amount" value=""><div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></div>
+                                                    <div class="cart-plus-minus mb-2"><input type="text" name="amount" value="${productCart.getQuantity()}"><div class="dec qtybutton"><a href="Decrement?id=${productCart.getProduct().getProductID()}">-</a></div><div class="inc qtybutton"><a href="Increment?id=${productCart.getProduct().getProductID()}">+</a></div></div>
                                                 <input value="" type="hidden" name="ProductId" >
-                                                <button class="btn btn-success" type="submit">Update cart</button>
                                             </form>
                                                 </td>
-                                            <td class="product-subtotal"><span class="">$130.00</span></td>
+                                            <td class="product-subtotal"><span class="">${productCart.getPrice()}</span></td>
 <!--                                                <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>-->
                                         </tr>                                                                            
                                     </c:forEach>
@@ -130,8 +129,7 @@
                                         <div class="cart-page-total">
                                             <h2>Cart totals</h2>
                                             <ul class="mb-20">
-                                                <li>Subtotal <span>$250.00</span></li>
-                                                <li>Total <span>$250.00</span></li>
+                                                <li>Total <span>${totalPrice}</span></li>
                                             </ul>
                                             <a class="tp-btn-h1" href="checkout.html">Proceed to checkout</a>
                                         </div>

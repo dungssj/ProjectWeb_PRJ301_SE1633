@@ -5,7 +5,6 @@
 
 package controller;
 
-
 import dao.CartDAO;
 import dao.ProductDAO;
 import java.io.IOException;
@@ -14,16 +13,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import model.Product;
-import model.ProductCart;
 import model.User;
 
 /**
  *
  * @author Dung
  */
-public class AddToCartServlet extends HttpServlet {
+public class AddToCartDecrementServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -40,10 +37,10 @@ public class AddToCartServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddToCartServlet</title>");  
+            out.println("<title>Servlet AddToCartDecrementServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddToCartServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet AddToCartDecrementServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,17 +57,23 @@ public class AddToCartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        CartDAO cartDao = new CartDAO();
+        int id = Integer.parseInt(request.getParameter("id"));
+        // Get product from dao by ID of product
+        ProductDAO productDao = new ProductDAO();
+        Product product = productDao.getProductByID(id);
+        // Get user id by session
         User u = (User) request.getSession().getAttribute("user");
-        ArrayList<ProductCart> productCartList = new ArrayList<>();
-        productCartList = cartDao.getProductFromCartByUserID(u);
-        int totalPrice = 0;
-        for (ProductCart productCart : productCartList) {
-            totalPrice +=productCart.price;
+        // Insert into database of table cart
+        CartDAO cartDao = new CartDAO();
+        // Check if product in cart is already exist then increase quantity
+        int quantity = cartDao.getQuantityProduct(product, u);
+        quantity--;
+        if(quantity == 0) {
+            cartDao.removeProductCartByID(product, u);
         }
-        request.setAttribute("totalPrice", totalPrice);
-        request.setAttribute("productCartList", productCartList);
-        request.getRequestDispatcher("AddToCart.jsp").forward(request, response);
+        
+        cartDao.updateQuantityAndPrice(product, u, quantity);
+        response.sendRedirect("AddToCart");
     } 
 
     /** 
@@ -83,31 +86,7 @@ public class AddToCartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("ProductId"));
-        // Get product from dao by ID of product
-        ProductDAO productDao = new ProductDAO();
-        Product product = productDao.getProductByID(id);
-        // Get user id by session
-        User u = (User) request.getSession().getAttribute("user");
-        // Insert into database of table cart
-        CartDAO cartDao = new CartDAO();
-        // Check if product in cart is already exist then increase quantity
-        if(cartDao.checkProductExist(product, u)) {
-            int quantity = cartDao.getQuantityProduct(product, u);
-            quantity++;
-            cartDao.updateQuantityAndPrice(product, u, quantity);
-        } else {
-            cartDao.insertToCart(product, u, 1);
-        }
-        ArrayList<ProductCart> productCartList = new ArrayList<>();
-        productCartList = cartDao.getProductFromCartByUserID(u);
-        int totalPrice = 0;
-        for (ProductCart productCart : productCartList) {
-            totalPrice +=productCart.price;
-        }
-        request.setAttribute("totalPrice", totalPrice);
-        request.setAttribute("productCartList", productCartList);
-        request.getRequestDispatcher("AddToCart.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /** 
