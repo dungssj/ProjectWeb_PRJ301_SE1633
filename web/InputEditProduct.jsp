@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="Edit">
+        <form action="Edit" method="post">
             <input type="text" name="id" value="${pro.getProductID()}" hidden="">
             <br>ProductName:<input type="text" name="name" value="${pro.getProductName()}">
             <br>Amount:<input type="text" name="amount" value="${pro.getAmount()}">

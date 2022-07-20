@@ -35,8 +35,8 @@ public class Product {
     }
 
     public Product(int id, String name, int amount, int price, int discount) {
-        this.productID = productID;
-        this.productName = productName;
+        this.productID = id;
+        this.productName = name;
         this.amount = amount;
         this.price = price;
         this.discount = discount;

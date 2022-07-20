@@ -196,7 +196,7 @@ public class ProductDAO {
     }
 
     public void updateProductById(Product product) {
-        String update = "update Product set productName ='?',amount=?, Price=?, Discount=? where Product.productID=?";
+        String update = "update Product set productName =?,amount=?, Price=?, Discount=? where Product.productID=?";
         try {           
             PreparedStatement stm = connection.prepareStatement(update);
             stm.setString(1, product.getProductName());
@@ -207,7 +207,7 @@ public class ProductDAO {
             stm.executeUpdate();
         } catch (Exception e) {
             System.out.println("Update fail: " + e.getMessage());
-        };
+        }
     }
 
     public int getTotalProduct() {
