@@ -65,6 +65,7 @@
                         </h2>
                     </div>
                     <div class="space"></div>
+                    <div><input type="text" name="address" style="width: 100%"></div>
                     <div class="product-content product-fourcolumn clearfix">
                         <ul class="product clearfix">
                             <c:forEach items="${sessionScope.listCart}"  var="item"> 
@@ -79,12 +80,12 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="product-info text-center clearfix">
+                                        <div class="product-info text-center clearfix" style="padding-top: 48%">
                                             <span class="product-title">${item.getProduct().getProductName()}</span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="price">
+                                        <div class="price" style="padding-top: 48%">
                                             <ins>
                                                 <span class="amount">${item.getProduct().getPrice()}</span>
                                             </ins>
@@ -93,8 +94,12 @@
                                 </li>
                             </c:forEach>
                             <div>
+                                <span class="totalmoney"> <c:forEach items="${sessionScope.listCart}"  var="item">
+                                        Total Money: ${item.getProduct().getPrice()}
+                                </c:forEach></span>
+                            </div>
+                            <div>
                                 <button class="checkout" style="border: none">Check Out</button>
-
                             </div>
                         </ul>
                     </div>
