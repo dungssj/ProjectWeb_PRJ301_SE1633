@@ -24,6 +24,48 @@
         <link rel="stylesheet" href="asset/style/shop/font-awesome-pro.css">
         <link rel="stylesheet" href="asset/style/shop/default.css">
         <link rel="stylesheet" href="asset/style/shop/shop.css">
+        <link rel="stylesheet" href="asset/style/landingpage/LandingPage.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <div class="menu">
+            <div id="logo" class="logo float-left">
+                <a href="index.html" title="logo">
+                    <img src="asset/img/landingpage/logo.png" alt="image" width="107" height="24" data-retina=""C:\Users\Admin\Downloads\modaz-minimalist-ecommerce-html-template-2022-02-21-23-53-38-utc\modaz-package\modaz\images\logo@2x.png""
+                         data-width="107" data-height="24">
+                </a>
+            </div>
+            <!--End Logo-->
+
+            <ul class="nav">
+                <li class="navbar_link"><a></a></li>
+                <li class="navbar_link"><a></a></li>
+                <li class="navbar_link"><a></a></li>
+                <li class="navbar_link"><a></a></li>
+                <li class="navbar_link"><a href="LandingPage">HOME</a></li>
+                <li class="navbar_link"><a href="ListProduct">SHOP</a></li>
+                <li class="navbar_link"><a href="#">ABOUT US</a></li>
+                <li class="navbar_link"><a href="#">CONTACT US</a></li>
+                <li class="navbar_link"><a></a></li>
+                <li class="navbar_link"><a href="AddToCart"><i class="glyphicon glyphicon-shopping-cart cart-icon"></i><span
+                            class="badge"></span></a></li>
+                <li class="navbar_link"><a href="#">
+                        <div class="box">
+                            <div class="container-1">
+                                <span class="icon"><i class="glyphicon glyphicon-search"></i></span>
+                            </div>
+                        </div>
+                    </a></li>
+                <div class="dropdown">
+                    <li class="navbar_link"><a href="#" class="name-dropdown-hover" ></a>${user.getUserName()}<i class="glyphicon glyphicon-user"></i></li>
+                    <div class="dropdown-content">
+                        <a href="logout" class="drop1">Log out</a>
+                        <div class="drop_space"></div>
+                        <a href="Account" class="drop2">Account Setting</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        
     </head>
     <body>
         <!--[if lte IE 9]>
